@@ -15,7 +15,7 @@ const Hero = () => {
                     </Button>
                 </div>
                 <div className='absolute min-w-full max-w-lg top-0 right-0 min-h-0' style={{height: 410}}>
-                    <Image src='/hero-image-mobile.svg' layout='fill' className='object-cover object-bottom' />
+                    <Image src='/landing/hero-image-mobile.svg' layout='fill' className='object-cover object-bottom' />
                 </div>
             </div>
         </Section>

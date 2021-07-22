@@ -1,8 +1,18 @@
+import groq from 'groq'
 import Head from 'next/head'
+import client from '../client'
+import BackgroundIssues from '../components/Home/BackgroundIssues'
+import Contribute from '../components/Home/Contribute'
+import Guide from '../components/Home/Guide'
 import Hero from '../components/Home/Hero'
+import Quiz from '../components/Home/Quiz'
 import Container from '../components/shared/Container'
 
-export default function Home() {
+export default function Home({quiz}) {
+  if (!quiz) {
+    return <p className='text-center'>Loading...</p>
+  }
+
   return (
     <>
       <Head>
@@ -24,7 +34,29 @@ export default function Home() {
       </Head>
       <Container style={{backgroundColor: 'white'}}>
         <Hero />
+        <Quiz quiz={quiz} />
+        <Guide />
+        <BackgroundIssues />
+        <Contribute />
       </Container>
     </>
   )
+}
+
+const quizQuery = groq`
+    *[_type == "quiz"][0..3] {
+        title,
+        'slug': slug.current,
+        mainImage
+    }
+`
+
+export async function getServerSideProps(context) {
+    const quiz = await client.fetch(quizQuery)
+
+    return {
+        props: {
+            quiz: [...quiz, quiz[0]]
+        }, // will be passed to the page component as props
+    }
 }
