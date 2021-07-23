@@ -15,10 +15,10 @@ const Hero = () => {
                             Get Started
                         </Button>
                     </div>
-                    <div className='absolute min-w-full max-w-lg top-0 right-0 min-h-0 md:hidden lg:hidden' style={{height: '110vw', maxHeight: 410}}>
+                    <div className='absolute min-w-full max-w-lg -top-20 right-0 min-h-0 md:hidden lg:hidden' style={{height: '110vw', maxHeight: 410}}>
                         <Image src='/landing/hero-image-mobile.svg' layout='fill' className='object-cover object-bottom' />
                     </div>
-                    <div className='absolute w-5/6 top-0 right-0 min-h-0 hidden md:block lg:hidden' style={{height: '75vw', maxHeight: 600}}>
+                    <div className='absolute w-5/6 -top-20 right-0 min-h-0 hidden md:block lg:hidden' style={{height: '75vw', maxHeight: 600}}>
                         <Image src='/landing/hero-image-mobile.svg' layout='fill' className='object-cover object-bottom' />
                     </div>
                 </div>
