@@ -13,11 +13,11 @@ const Quiz = ({quiz}) => {
                     <p className='text-cust-purple tracking-widest font-semibold mb-2 lg:text-lg'>TOP QUIZ</p>
                     <h1 className='text-2xl font-semibold lg:text-3xl'>Choose Your Fun</h1>
                 </div>
-                <Button variant='primary' outlined>
+                <Button variant='primary' outlined style='hidden lg:block'>
                     See More
                 </Button>
             </div>
-            <div className='my-10 mb-12 flex flex-col gap-10 lg:grid lg:grid-rows-2 lg:grid-cols-2'>
+            <div className='my-10 mb-12 flex flex-col gap-10 lg:grid lg:grid-rows-2 lg:grid-cols-2 lg:my-16'>
                 {quiz.map(({title, slug, mainImage}, index) => 
                     <Link key={index} href={`/quiz/${slug}`}>
                         <div className={`w-full group h-80 relative rounded-2xl overflow-hidden shadow-quiz-card border-2 cursor-pointer border-gray-800 
