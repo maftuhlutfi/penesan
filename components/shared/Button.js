@@ -11,7 +11,7 @@ const Button = ({children, variant, outlined}) => {
 
     return (
         <button className={`px-5 py-2 flex w-min whitespace-nowrap rounded-lg font-semibold 
-            transform focus:shadow-none focus:translate-y-2 hover:brightness-110 ${outlined ? outlinedStyle[variant] : variants[variant]}`}>
+            transform focus:shadow-none focus:translate-y-2 hover:brightness-110 lg:text-xl ${outlined ? outlinedStyle[variant] : variants[variant]}`}>
             {children}
         </button>
     );
