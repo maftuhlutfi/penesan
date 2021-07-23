@@ -16,15 +16,15 @@ const Hero = () => {
                         </Button>
                     </div>
                     <div className='absolute min-w-full max-w-lg -top-20 right-0 min-h-0 md:hidden lg:hidden' style={{height: '110vw', maxHeight: 410}}>
-                        <Image src='/landing/hero-image-mobile.svg' layout='fill' className='object-cover object-bottom' />
+                        <Image src='/landing/hero-image-mobile.svg' layout='fill' className='object-cover object-bottom' alt='hero image mobile' />
                     </div>
                     <div className='absolute w-5/6 -top-20 right-0 min-h-0 hidden md:block lg:hidden' style={{height: '75vw', maxHeight: 600}}>
-                        <Image src='/landing/hero-image-mobile.svg' layout='fill' className='object-cover object-bottom' />
+                        <Image src='/landing/hero-image-mobile.svg' layout='fill' className='object-cover object-bottom' alt='hero image mobile' />
                     </div>
                 </div>
             </Section>
             <div className='absolute top-0 right-0 h-full hidden lg:block w-6/12' style={{maxHeight: 850}}>
-                <Image src='/landing/hero-image.svg' layout='fill' className='object-cover object-left-bottom' />
+                <Image src='/landing/hero-image.svg' layout='fill' className='object-cover object-left-bottom' alt='hero image desktop' />
             </div>
         </>
     );

@@ -17,7 +17,7 @@ const Guide = () => {
                     <h1 className='text-2xl font-semibold lg:text-3xl'>Play Your Fun</h1>
                 </div>
                 <div className='relative w-full h-80 -my-4 max-w-sm md:my-2 lg:max-w-2xl lg:h-screen' style={{maxHeight: 520}}>
-                    <Image src='/landing/guide-img.svg' layout='fill' className='object-cover object-center' />
+                    <Image src='/landing/guide-img.svg' layout='fill' className='object-cover object-center' alt='guide image' />
                 </div>
                 <div className='lg:w-2/5'>
                     <div className='text-left hidden lg:block mb-8'>
