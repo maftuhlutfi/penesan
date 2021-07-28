@@ -1,5 +1,4 @@
 import groq from 'groq'
-import Head from 'next/head'
 import client from '../client'
 import BackgroundIssues from '../components/Home/BackgroundIssues'
 import Contribute from '../components/Home/Contribute'
@@ -7,6 +6,7 @@ import Guide from '../components/Home/Guide'
 import Hero from '../components/Home/Hero'
 import Quiz from '../components/Home/Quiz'
 import Container from '../components/shared/Container'
+import CustomHead from '../components/shared/CustomHead'
 
 export default function Home({quiz}) {
   if (!quiz) {
@@ -15,23 +15,11 @@ export default function Home({quiz}) {
 
   return (
     <>
-      <Head>
-        <title>DeBut - Pandemi Gabut</title>
-        <meta name="title" content="DeBut - Pandemi Gabut" />
-        <meta name="description" content="Tired with COVID-19 News? Get Covid Info with Fun now! Challenge yourself. See your future predictions, according to your knowledge of the plague. [of course it's just a joke]" />
-
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://debut.vercel.app" />
-        <meta property="og:title" content="DeBut - Pandemi Gabut" />
-        <meta property="og:description" content="Tired with COVID-19 News? Get Covid Info with Fun now! Challenge yourself. See your future predictions, according to your knowledge of the plague. [of course it's just a joke]" />
-        <meta property="og:image" content="https://i.ibb.co/mFytzFs/Frame-30.png" />
-
-        <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:url" content="https://debut.vercel.app" />
-        <meta property="twitter:title" content="DeBut - Pandemi Gabut" />
-        <meta property="twitter:description" content="Tired with COVID-19 News? Get Covid Info with Fun now! Challenge yourself. See your future predictions, according to your knowledge of the plague. [of course it's just a joke]" />
-        <meta property="twitter:image" content="https://i.ibb.co/mFytzFs/Frame-30.png" />
-      </Head>
+      <CustomHead
+        title="DeBut - Pandemi Gabut"
+        description="Tired with COVID-19 News? Get Covid Info with Fun now! Challenge yourself. See your future predictions, according to your knowledge of the plague. [of course it's just a joke]"
+        url="https://debut.vercel.app"
+      />
       <Container style={{backgroundColor: 'white'}}>
         <Hero />
         <Quiz quiz={quiz} />
@@ -44,7 +32,7 @@ export default function Home({quiz}) {
 }
 
 const quizQuery = groq`
-    *[_type == "quiz"][0..3] {
+    *[_type == "quiz"][0..2] {
         title,
         'slug': slug.current,
         mainImage
@@ -56,7 +44,7 @@ export async function getServerSideProps(context) {
 
     return {
         props: {
-            quiz: [...quiz, quiz[0]]
+            quiz
         }, // will be passed to the page component as props
     }
 }

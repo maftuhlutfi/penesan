@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import Button from "../shared/Button";
 import Section from "../shared/Section";
 
@@ -33,9 +34,11 @@ const Guide = () => {
                         )}
                     </div>
                     <div className='mt-8 flex justify-center lg:justify-start'>
-                        <Button variant='primary'>
-                            Play Now!
-                        </Button>
+                        <Link href='/explore'>
+                            <Button variant='primary'>
+                                Play Now!
+                            </Button>
+                        </Link>
                     </div>
                 </div>
             </div>

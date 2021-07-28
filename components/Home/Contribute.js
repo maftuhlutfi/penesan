@@ -21,12 +21,10 @@ const Contribute = () => {
                 <div className='mt-8 lg:relative lg:-left-96 lg:-ml-8 lg:mt-0'>
                     <h1 className='text-2xl font-bold mb-2 lg:text-5xl lg:leading-tight lg:min-w-full lg:w-max lg:max-w-md'>You Got a Better Idea?</h1>
                     <p className='text-text-secondary mb-6 lg:text-lg lg:min-w-full lg:w-max lg:max-w-md'>Share your ideas and challenge the others.</p>
-                    <Link href='/contribute' passHref>
-                        <a>
-                            <Button variant='primary'>
-                                Contribute!
-                            </Button>
-                        </a>
+                    <Link href='/contribute'>
+                        <Button variant='primary'>
+                            Contribute!
+                        </Button>
                     </Link>
                 </div>
             </div>

@@ -3,6 +3,9 @@ import 'tailwindcss/tailwind.css'
 import Footer from '../components/shared/Footer'
 import Navigation from '../components/shared/Navigation'
 
+import '../style/global.css'
+import '../style/font-style.css'
+
 function MyApp({ Component, pageProps }) {
   return (
     <div className='text-text-primary'>
