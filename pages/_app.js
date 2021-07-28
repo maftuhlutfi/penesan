@@ -3,8 +3,17 @@ import 'tailwindcss/tailwind.css'
 import Footer from '../components/shared/Footer'
 import Navigation from '../components/shared/Navigation'
 
-import '../style/global.css'
-import '../style/font-style.css'
+import '../styles/global.css'
+import '../styles/font-style.css' //nprogress module
+import '../styles/nprogress.css'; 
+
+import Router from 'next/router'
+import NProgress from 'nprogress'
+
+//Binding events. 
+Router.events.on('routeChangeStart', () => NProgress.start()); 
+Router.events.on('routeChangeComplete', () => NProgress.done());
+Router.events.on('routeChangeError', () => NProgress.done()); 
 
 function MyApp({ Component, pageProps }) {
   return (
