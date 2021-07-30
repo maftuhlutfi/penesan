@@ -9,6 +9,7 @@ import '../styles/nprogress.css';
 
 import Router from 'next/router'
 import NProgress from 'nprogress'
+import ScrollToTopBtn from '../components/shared/ScrollToTopBtn'
 
 //Binding events. 
 Router.events.on('routeChangeStart', () => NProgress.start()); 
@@ -27,6 +28,7 @@ function MyApp({ Component, pageProps }) {
       <Navigation />
       <Component {...pageProps} />
       <Footer />
+      <ScrollToTopBtn />
     </div>
   )
 }
