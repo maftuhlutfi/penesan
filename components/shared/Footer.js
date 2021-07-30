@@ -1,24 +1,6 @@
 import Link from "next/link";
 import Logo from "./Logo"
-
-const menu = [
-    {
-        name: 'Home',
-        href: '/'
-    },
-    {
-        name: 'Explore',
-        href: '/explore'
-    },
-    {
-        name: 'About',
-        href: '/about'
-    },
-    {
-        name: 'Login',
-        href: '/login'
-    }
-]
+import menuList from "./menuList";
 
 const Footer = () => {
     return (
@@ -30,7 +12,7 @@ const Footer = () => {
             <div className='flex items-center flex-col lg:items-start'>
                 <h1 className='text-xl text-white font-bold lg:text-2xl'>Menu</h1>
                 <div className='text-sm text-gray-400 mt-4 flex gap-6 w-full justify-center leading-normal lg:text-base'>
-                    {menu.map((item, index) => 
+                    {[...menuList, {name: 'Login', href: '/login'}].map((item, index) => 
                         <Link href={item.href} key={index}>
                             {item.name}
                         </Link>
