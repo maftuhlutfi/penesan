@@ -1,6 +1,6 @@
 const AnswersContainer = ({children}) => {
     return (
-        <div className='grid mb-10 lg:mb-16 grid-flow-col gap-x-4 gap-y-6 justify-center auto-cols-min w-full'>
+        <div className='flex flex-wrap mb-10 lg:mb-16 gap-x-4 gap-y-8 justify-center w-full'>
             {children}
         </div>
     );

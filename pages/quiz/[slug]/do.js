@@ -13,14 +13,16 @@ import AnswersContainer from "../../../components/DoTheQuiz/AnswersContainer";
 import Question from "../../../components/DoTheQuiz/Question";
 import Message from "../../../components/DoTheQuiz/Message";
 import AnswerBtn from "../../../components/DoTheQuiz/AnswerBtn";
+import { useRouter } from "next/dist/client/router";
 
 const DoTheQuizPage = ({quiz}) => {
+    const router = useRouter()
+
     const [question, setQuestion] = useState(null)
     const [questionNumber, setQuestionNumber] = useState(0)
     const [answerFromUser, setAnswerFromUser] = useState(null)
     const [message, setMessage] = useState(null)
-    
-    const isCorrect = question && question.correctAnswer == answerFromUser
+    const [totalCorrect, setTotalCorrect] = useState(0)
 
     useEffect(() => {
         if (quiz) {
@@ -30,6 +32,7 @@ const DoTheQuizPage = ({quiz}) => {
                         'question': questions[${questionNumber}]
                     }
                 `)
+                console.log(res.question)
                 setQuestion(res.question)
             }
             getQuestion()
@@ -45,12 +48,33 @@ const DoTheQuizPage = ({quiz}) => {
                 type: question && answer == question.correctAnswer ? 'correct' : 'wrong',
                 message: question && answer == question.correctAnswer ? 'Your answer is correct ✓' : 'Your answer is wrong ✖'
             })
+            
+            if (answer == question.correctAnswer) {
+                setTotalCorrect(prev => prev + 1)
+            }
+        }
+    }
+
+    const handleRetry = () => {
+        setQuestionNumber(0)
+        setMessage(null)
+        setAnswerFromUser(null)
+        setTotalCorrect(0)
+    }
+
+    const handleNextFinish = () => {
+        if (questionNumber + 1 < quiz.totalQuestions) {
+            questionNumber + 1 < quiz.totalQuestions
+        } else {
+            router.push('/result')
         }
     }
 
     if (!quiz) {
         return <p>Loading...</p>
     }
+
+    console.log(totalCorrect)
 
     return (
         <>
@@ -61,15 +85,15 @@ const DoTheQuizPage = ({quiz}) => {
                 url={`https://debut.vercel.app/quiz/${quiz.slug.current}/do`}
             />
             <Container>
-                <div className='flex fixed w-full left-0 px-8 pb-4 bg-text-primary lg:static z-30 justify-between'>
+                <div className='flex fixed w-full left-0 px-8 lg:px-0 pb-4 bg-text-primary lg:static z-30 justify-between'>
                     <div className='flex gap-4 text-xs md:text-base'>
-                        <PauseMenu />
+                        <PauseMenu totalCorrect={totalCorrect} retryQuiz={handleRetry} />
                         <QuestionNumber totalQuestions={quiz.totalQuestions} current={questionNumber+1} />
                     </div>
                     <div className='flex gap-6'>
                         {answerFromUser && 
                             <div className={`bg-white w-full fixed bottom-0 left-0 pt-4 pb-6 flex justify-end px-4 lg:static lg:bg-transparent lg:p-0`}>
-                                <Button variant='secondary' onClick={() => setQuestionNumber(prev => prev+1)}>
+                                <Button variant='secondary' onClick={handleNextFinish}>
                                     {questionNumber + 1 < quiz.totalQuestions ? 'Next' : 'Finish'}
                                 </Button>
                             </div>
