@@ -3,7 +3,7 @@ import React from "react";
 const Button = React.forwardRef(({children, variant, outlined, style, href, onClick}, ref) => { 
     const variants = {
         primary: 'bg-cust-red text-white shadow-red',
-        secondary: 'bg-cust-purple text-white shadow-purple',
+        secondary: 'bg-cust-purple text-white shadow-purple-btn',
     }
 
     const outlinedStyle = {

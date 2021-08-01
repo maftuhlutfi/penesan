@@ -18,6 +18,7 @@ module.exports = {
       },
       boxShadow: {
         'purple': '0px 10px 0px #868AD7',
+        'purple-btn': '0px 10px 0px #2B2E8C',
         'red': '0px 10px 0px #E01C1C',
         'quiz-card': '0px 12px 0px #D3DCFB'
       }
