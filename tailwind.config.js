@@ -20,11 +20,18 @@ module.exports = {
         'purple': '0px 10px 0px #868AD7',
         'purple-btn': '0px 10px 0px #2B2E8C',
         'red': '0px 10px 0px #E01C1C',
-        'quiz-card': '0px 12px 0px #D3DCFB'
+        'quiz-card': '0px 12px 0px #D3DCFB',
+        'green': '0px 10px 0px #0C9C6C'
       }
     },
     fontFamily: {
       'sans': ['Poppins']
+    },
+    keyframes: {
+      wiggle: {
+        '0%, 100%': { transform: 'rotate(-3deg)' },
+        '50%': { transform: 'rotate(3deg)' },
+      }
     }
   },
   variants: {

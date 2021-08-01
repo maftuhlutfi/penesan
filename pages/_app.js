@@ -19,6 +19,7 @@ Router.events.on('routeChangeError', () => NProgress.done());
 function MyApp({ Component, pageProps }) {
   const router = useRouter()
   const pageWithoutNav = ['/quiz/[slug]/do']
+  const pageWithoutFooter = ['/quiz/[slug]/do']
 
   return (
     <div className='text-text-primary'>
@@ -30,7 +31,7 @@ function MyApp({ Component, pageProps }) {
       </Head>
       {!pageWithoutNav.includes(router.pathname) && <Navigation />}
       <Component {...pageProps} />
-      <Footer />
+      {!pageWithoutFooter.includes(router.pathname) && <Footer />}
       <ScrollToTopBtn />
     </div>
   )
