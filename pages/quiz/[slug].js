@@ -36,7 +36,7 @@ const QuizSinglePage = ({quiz}) => {
                         <div className='max-w-lg'>
                             <h1 className='text-2xl lg:text-4xl font-bold mb-4 leading-normal'>{quiz.title}</h1>
                             <BlockContent blocks={quiz.description} className='leading-normal text-text-secondary' renderContainerOnSingleChild={true} />
-                            <div className='flex gap-4 mt-6 items-center fixed bottom-0 bg-white justify-center w-full left-0 pt-4 pb-8 md:static md:bg-transparent md:justify-start md:p-0'>
+                            <div className='flex gap-4 mt-6 items-center fixed bottom-0 bg-white justify-center z-10 w-full left-0 pt-4 pb-8 md:static md:bg-transparent md:justify-start md:p-0'>
                                 <Button variant='primary' onClick={() => router.push(`/quiz/${quiz.slug.current}/do`)}>
                                     <i className='icon-play mr-3' />
                                     Play Quiz
@@ -48,6 +48,12 @@ const QuizSinglePage = ({quiz}) => {
                             </div>
                         </div>
                     </div>
+                </Section>
+                <Section>
+                    <button className='py-3 px-6 bg-white text-lg font-semibold rounded-xl shadow-sm' onClick={() => router.back()}>
+                        <i className='icon-arrow-left mr-3 text-base text-light-purple' />
+                        Back
+                    </button>
                 </Section>
             </Container>
             <ShareModal
