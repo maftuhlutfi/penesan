@@ -59,9 +59,9 @@ const LoginPage = () => {
                 <Wrapper>
                     <h1 className='text-xl font-bold text-center mb-6'>Login to DeBut</h1>
                     <div className='my-6 flex flex-col gap-4'>
-                        <LoginWithSocialBtn label='Continue with Google' icon='google' provider='google' />
-                        <LoginWithSocialBtn label='Continue with Facebook' icon='facebook' provider='facebook' />
-                        <LoginWithSocialBtn label='Continue with Twitter' icon='twitter' provider='twitter' />
+                        <LoginWithSocialBtn label='Continue with Google' icon='google' provider='google' callbackUrl='http://localhost:3000/explore' />
+                        <LoginWithSocialBtn label='Continue with Facebook' icon='facebook' provider='facebook' callbackUrl='http://localhost:3000/explore' />
+                        <LoginWithSocialBtn label='Continue with Twitter' icon='twitter' provider='twitter' callbackUrl='http://localhost:3000/explore' />
                     </div>
                     <p className='text-sm text-gray-400 text-center'>— or —</p>
                     <form className='my-6 flex flex-col gap-4' action='http://localhost:3000/api/auth/callback/sanity-login' method="POST" onSubmit={() => setLoading(true)}>

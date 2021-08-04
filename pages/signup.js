@@ -87,9 +87,9 @@ const SignUpPage = () => {
                     <h1 className='text-xl font-bold text-center mb-2'>Welcome to DeBut</h1>
                     <p className='text-text-secondary text-sm text-center mb-6'>Explore all fun information through the quiz and share your result.</p>
                     <div className='my-6 flex flex-col gap-4'>
-                        <LoginWithSocialBtn label='Continue with Google' icon='google' provider='google' />
-                        <LoginWithSocialBtn label='Continue with Facebook' icon='facebook' provider='facebook' />
-                        <LoginWithSocialBtn label='Continue with Twitter' icon='twitter' provider='twitter' />
+                        <LoginWithSocialBtn label='Continue with Google' icon='google' provider='google' callbackUrl='http://localhost:3000/explore' />
+                        <LoginWithSocialBtn label='Continue with Facebook' icon='facebook' provider='facebook' callbackUrl='http://localhost:3000/explore' />
+                        <LoginWithSocialBtn label='Continue with Twitter' icon='twitter' provider='twitter' callbackUrl='http://localhost:3000/explore' />
                     </div>
                     <p className='text-sm text-gray-400 text-center'>— or —</p>
                     <form className='my-6 flex flex-col gap-4' onSubmit={handleSubmit}>

@@ -1,5 +1,6 @@
 import { signOut, useSession } from "next-auth/client";
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
 import Button from "../Button";
 
@@ -22,7 +23,9 @@ const Avatar = () => {
             </div>
             {showDropMenu &&
                 <div className='bg-white w-full lg:w-auto py-4 absolute top-full mt-2 z-50 right-0 rounded-lg shadow-md flex flex-col' style={{height: 'fit-content'}}>
-                    <a className='px-8 py-2 text-center whitespace-nowrap hover:bg-gray-200'>My result</a>
+                    <Link href='/profile'>
+                        <a className='px-8 py-2 text-center whitespace-nowrap hover:bg-gray-200'>Profile</a>
+                    </Link>
                     <div className='px-6 py-2 text-center whitespace-nowrap hover:bg-gray-200'>
                         <button className='bg-cust-red text-white font-semibold px-4 py-2 rounded-lg' onClick={() => signOut()}>
                             Logout

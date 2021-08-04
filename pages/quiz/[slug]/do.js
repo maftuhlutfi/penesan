@@ -6,7 +6,7 @@ import CustomHead from "../../../components/shared/CustomHead"
 import { urlFor } from "../../../imageUrlBuilder";
 import QuestionNumber from "../../../components/DoTheQuiz/QuestionNumber";
 import FullscreenBtn from "../../../components/DoTheQuiz/FullscreenBtn";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Button from "../../../components/shared/Button";
 import Explaination from "../../../components/DoTheQuiz/Explaination";
 import AnswersContainer from "../../../components/DoTheQuiz/AnswersContainer";
@@ -16,8 +16,16 @@ import AnswerBtn from "../../../components/DoTheQuiz/AnswerBtn";
 import { useRouter } from "next/dist/client/router";
 import createResultId from "../../../components/DoTheQuiz/createResultId";
 
+import { useSession } from "next-auth/client";
+import LoginModal from "../../../components/shared/LoginModal";
+import { TempDataContext } from "../../../components/Context";
+
 const DoTheQuizPage = ({quiz}) => {
     const router = useRouter()
+    const [session, loading] = useSession()
+
+    const {score, addTempData, removeTempData} = useContext(TempDataContext)
+    const [showLoginModal, setShowLoginModal] = useState(false)
 
     const [question, setQuestion] = useState(null)
     const [questionNumber, setQuestionNumber] = useState(11)
@@ -62,24 +70,57 @@ const DoTheQuizPage = ({quiz}) => {
         setTotalCorrect(0)
     }
 
-    const handleNextFinish = () => {
-        if (questionNumber + 1 < quiz.totalQuestions) {
-            setQuestionNumber(prev => prev+1)
-        } else {
-            const doc = {
-                _type: 'result',
-                quiz: {
-                    _ref: quiz._id
-                },
-                score: totalCorrect / quiz.totalQuestions * 100
+    const createResult = async (score) => {
+        const userRes = await client.fetch(groq`
+            *[_type == "user" && email == "${session.user.email}" || name == "${session.user.name}"][0] {
+                _id
             }
-            client.create(doc).then(res => {
-                console.log(`Result created, id: ${res._id}`)
-                router.push(`/result/${res._id}`)
-            }).catch(err => console.log(err))
-            //router.push('/result')
+        `)
+        const userId = await userRes._id
+        const doc = await {
+            _type: 'result',
+            quiz: {
+                _ref: quiz._id
+            },
+            user: {
+                _ref: userId
+            },
+            score
+        }
+
+        try {
+            const createRes = await client.create(doc)
+            if (createRes) {
+                router.push(`/result/${createRes._id}`)
+                window.localStorage.removeItem('tempData')
+                removeTempData('score')
+            }
+        } catch (err) {
+            console.log(err)
         }
     }
+
+    const handleNextFinish = () => {
+        const score = totalCorrect / quiz.totalQuestions * 100
+
+        if (questionNumber + 1 < quiz.totalQuestions) {
+            setQuestionNumber(prev => prev+1)
+        } else if (!session) {
+            addTempData('score', score)
+            setShowLoginModal(true)
+            return
+        } else {
+            createResult(score)
+        }
+    }
+
+    useEffect(() => {
+        console.log(score, session)
+        if(score && session) {
+            console.log('generate')
+            createResult(score)
+        }
+    }, [score, session])
 
     if (!quiz) {
         return <p>Loading...</p>
@@ -139,6 +180,7 @@ const DoTheQuizPage = ({quiz}) => {
                 </section>
                 {message && <Message {...message} />}
             </Container>
+            <LoginModal title='Oops, Login First' description='You have to login first to see your result.' show={showLoginModal} />
         </>
     );
 }
