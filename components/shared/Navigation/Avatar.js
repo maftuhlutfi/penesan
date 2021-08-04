@@ -11,7 +11,7 @@ const Avatar = () => {
         <div className='flex items-center bg-cust-purple px-4 py-2 rounded-lg cursor-pointer relative' onClick={() => setShowDropMenu(prev => !prev)} onBlur={() => setShowDropMenu(false)}>
             <div className='relative rounded-full w-10 h-10 transition-all ease-in duration-200'>
                 {session ?
-                    <Image src={session.user.image} layout='fill' className='object-cover object-center rounded-full' />
+                    <Image src={session.user.image || '/icons/user-circled.svg'} layout='fill' className='object-cover object-center rounded-full' />
                     :
                     <div className='w-full h-full bg-gray-400 animate-pulse' />
                 }

@@ -1,13 +1,53 @@
-import Button from "../components/shared/Button"
-import {signIn, signOut} from 'next-auth/client'
+import {getCsrfToken, signIn} from 'next-auth/client'
 import CustomHead from "../components/shared/CustomHead";
 import Container from "../components/LoginSignUp/Container";
 import Wrapper from "../components/LoginSignUp/Wrapper";
 import TextInput from "../components/LoginSignUp/TextInput";
 import LoginWithSocialBtn from "../components/LoginSignUp/LoginWithSocialBtn";
 import Link from "next/link";
+import { useEffect, useState } from "react";
+import Message from '../components/shared/Message';
+import { Router, useRouter } from 'next/dist/client/router';
+import Spinner from '../components/shared/Spinner';
 
 const LoginPage = () => {
+    const initInput = {
+        email: '',
+        password: ''
+    }
+
+    const errorQuery = useRouter().query.error
+    const [error, setError] = useState(null)
+
+    const [loading, setLoading] = useState(false)
+
+    const [input, setInput] = useState(initInput)
+    const {email, password} = input
+
+    const [csrfToken, setCsrfToken] = useState('')
+
+    const handleChange = e => {
+        const {value, name} = e.target
+        setError(null)
+
+        setInput(prev => ({
+            ...prev,
+            [name]: value
+        }))
+    }
+
+    useEffect(() => {
+        const getCsrfTokenFunc = async () => {
+            const csrfToken = await getCsrfToken()
+            setCsrfToken(csrfToken)
+        }
+        getCsrfTokenFunc()
+    }, [])
+
+    useEffect(() => {
+        setError(errorQuery)
+    }, [errorQuery])
+    
     return (
         <>
             <CustomHead
@@ -24,10 +64,17 @@ const LoginPage = () => {
                         <LoginWithSocialBtn label='Continue with Twitter' icon='twitter' provider='twitter' />
                     </div>
                     <p className='text-sm text-gray-400 text-center'>— or —</p>
-                    <form className='my-6 flex flex-col gap-4'>
-                        <TextInput id='email' type='email' name='email' label='Email' placeholder='mail@example.com' />
-                        <TextInput id='password' type='password' name='password' label='Password' />
-                        <button type='submit' className='w-full mt-2 bg-cust-purple text-white font-medium py-2 rounded'>Login</button>
+                    <form className='my-6 flex flex-col gap-4' action='http://localhost:3000/api/auth/callback/sanity-login' method="POST" onSubmit={() => setLoading(true)}>
+                        <input type="hidden" name="csrfToken" value={csrfToken} />
+                        <TextInput id='email' type='email' name='email' label='Email' placeholder='mail@example.com' value={email} onChange={handleChange} required />
+                        <TextInput id='password' type='password' name='password' label='Password' value={password} onChange={handleChange} required />
+                        <button type='submit' className='w-full mt-2 bg-cust-purple text-white font-medium py-2 rounded'>
+                            {loading ?
+                                <Spinner width='24px' />
+                                :
+                                'Login'
+                            }
+                        </button>
                     </form>
                     <div className='text-center text-sm text-text-secondary'>
                         Don't have an account?
@@ -35,6 +82,7 @@ const LoginPage = () => {
                     </div>
                 </Wrapper>
             </Container>
+            {error && <Message type='error' text={error} />}
         </>
     );
 }

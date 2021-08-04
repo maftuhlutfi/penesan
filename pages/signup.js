@@ -53,12 +53,20 @@ const SignUpPage = () => {
         setLoading(true)
 
 
-        // const user = await signUp({
-        //     ...input,
-        //     name: nameInput
-        // })
+        const res = await signUp({
+            ...input,
+            name: nameInput
+        })
 
-        if (true) {
+        console.log(res)
+
+        if (res.error) {
+            setMessage({type: 'error', text: res.error})
+            setLoading(false)
+            return
+        }
+
+        if (res.email) {
             setMessage({type: 'success', text: 'Successfully create an account, please login.'})
             const goToLogin = setInterval(() => {
                 router.push('/login')

@@ -24,6 +24,7 @@ export default NextAuth({
   },
   adapter: SanityAdapter(client),
   pages: {
-    signIn: '/login'
+    signIn: '/login',
+    error: '/login'
   }
 })
