@@ -1,14 +1,18 @@
+import { useSession } from 'next-auth/client'
 import { useRouter } from 'next/dist/client/router'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import LoginBtn from '../LoginBtn'
 import Logo from '../Logo'
 import menuList from '../menuList'
+import Avatar from './Avatar'
 import NavItem from './NavItem'
 
 const Navigation = ({dark}) => {
     const pathname = useRouter().pathname
     const isHome = pathname == '/'
+
+    const [session, loading] = useSession()
 
     const [showMenu, setShowMenu] = useState(false)
     const [scrollYPos, setScrollYPos] = useState(0)
@@ -33,7 +37,11 @@ const Navigation = ({dark}) => {
                     transform transition duration-500 ease-in-out ${!showMenu && 'translate-x-full lg:transform-none'}`}
             >
                 <NavItem isHome={isHome && scrollYPos <= 70} />
-                <LoginBtn isHome={isHome && scrollYPos <= 70} />
+                {session ? 
+                    <Avatar />
+                    :
+                    <LoginBtn isHome={isHome && scrollYPos <= 70} />
+                }
             </div>
             <div className="absolute right-8 block w-6 ml-2 lg:hidden cursor-pointer z-20" onClick={() => setShowMenu(prev => !prev)}>
                 {isHome && scrollYPos <= 70 ?
