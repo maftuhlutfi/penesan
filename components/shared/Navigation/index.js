@@ -35,7 +35,7 @@ const Navigation = ({dark}) => {
                 <NavItem isHome={isHome && scrollYPos <= 70} />
                 <LoginBtn isHome={isHome && scrollYPos <= 70} />
             </div>
-            <div className="absolute right-8 block w-6 ml-2 lg:hidden z-20" onClick={() => setShowMenu(prev => !prev)}>
+            <div className="absolute right-8 block w-6 ml-2 lg:hidden cursor-pointer z-20" onClick={() => setShowMenu(prev => !prev)}>
                 {isHome && scrollYPos <= 70 ?
                     <>
                         <span className={`block rounded-full absolute h-0.5 w-6 transform transition duration-500 ease-in-out ${showMenu ? 'rotate-45 bg-cust-purple' : '-translate-y-2 bg-white'}`} />

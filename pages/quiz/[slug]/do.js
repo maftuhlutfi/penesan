@@ -14,12 +14,13 @@ import Question from "../../../components/DoTheQuiz/Question";
 import Message from "../../../components/DoTheQuiz/Message";
 import AnswerBtn from "../../../components/DoTheQuiz/AnswerBtn";
 import { useRouter } from "next/dist/client/router";
+import createResultId from "../../../components/DoTheQuiz/createResultId";
 
 const DoTheQuizPage = ({quiz}) => {
     const router = useRouter()
 
     const [question, setQuestion] = useState(null)
-    const [questionNumber, setQuestionNumber] = useState(0)
+    const [questionNumber, setQuestionNumber] = useState(11)
     const [answerFromUser, setAnswerFromUser] = useState(null)
     const [message, setMessage] = useState(null)
     const [totalCorrect, setTotalCorrect] = useState(0)
@@ -32,7 +33,6 @@ const DoTheQuizPage = ({quiz}) => {
                         'question': questions[${questionNumber}]
                     }
                 `)
-                console.log(res.question)
                 setQuestion(res.question)
             }
             getQuestion()
@@ -64,17 +64,26 @@ const DoTheQuizPage = ({quiz}) => {
 
     const handleNextFinish = () => {
         if (questionNumber + 1 < quiz.totalQuestions) {
-            questionNumber + 1 < quiz.totalQuestions
+            setQuestionNumber(prev => prev+1)
         } else {
-            router.push('/result')
+            const doc = {
+                _type: 'result',
+                quiz: {
+                    _ref: quiz._id
+                },
+                score: totalCorrect / quiz.totalQuestions * 100
+            }
+            client.create(doc).then(res => {
+                console.log(`Result created, id: ${res._id}`)
+                router.push(`/result/${res._id}`)
+            }).catch(err => console.log(err))
+            //router.push('/result')
         }
     }
 
     if (!quiz) {
         return <p>Loading...</p>
     }
-
-    console.log(totalCorrect)
 
     return (
         <>
@@ -142,6 +151,7 @@ const quizSlugQuery = groq`
 
 const quizQuery = groq`
     *[_type == "quiz" && slug.current == $slug][0] {
+        _id,
         title,
         'totalQuestions': count(questions),
         description,

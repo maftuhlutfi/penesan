@@ -18,8 +18,8 @@ Router.events.on('routeChangeError', () => NProgress.done());
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter()
-  const pageWithoutNav = ['/quiz/[slug]/do']
-  const pageWithoutFooter = ['/quiz/[slug]/do']
+  const pageWithoutNav = ['/quiz/[slug]/do', '/login', '/signup']
+  const pageWithoutFooter = ['/quiz/[slug]/do', '/login', '/signup']
 
   return (
     <div className='text-text-primary'>
