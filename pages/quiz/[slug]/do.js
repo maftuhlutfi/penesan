@@ -22,7 +22,7 @@ import { TempDataContext } from "../../../components/Context";
 
 const DoTheQuizPage = ({quiz}) => {
     const router = useRouter()
-    const [session, loading] = useSession()
+    const [session, sessionLoading] = useSession()
 
     const {score, addTempData, removeTempData} = useContext(TempDataContext)
     const [showLoginModal, setShowLoginModal] = useState(false)
@@ -32,6 +32,8 @@ const DoTheQuizPage = ({quiz}) => {
     const [answerFromUser, setAnswerFromUser] = useState(null)
     const [message, setMessage] = useState(null)
     const [totalCorrect, setTotalCorrect] = useState(0)
+    
+    const [loading, setLoading] = useState(false)
 
     useEffect(() => {
         if (quiz) {
@@ -71,6 +73,8 @@ const DoTheQuizPage = ({quiz}) => {
     }
 
     const createResult = async (score) => {
+        setLoading(true)
+
         const userRes = await client.fetch(groq`
             *[_type == "user" && email == "${session.user.email}" || name == "${session.user.name}"][0] {
                 _id
@@ -97,6 +101,7 @@ const DoTheQuizPage = ({quiz}) => {
             }
         } catch (err) {
             console.log(err)
+            setLoading(false)
         }
     }
 
@@ -115,9 +120,7 @@ const DoTheQuizPage = ({quiz}) => {
     }
 
     useEffect(() => {
-        console.log(score, session)
         if(score && session) {
-            console.log('generate')
             createResult(score)
         }
     }, [score, session])
@@ -180,7 +183,14 @@ const DoTheQuizPage = ({quiz}) => {
                 </section>
                 {message && <Message {...message} />}
             </Container>
-            <LoginModal title='Oops, Login First' description='You have to login first to see your result.' show={showLoginModal} />
+            <LoginModal 
+                loginTitle='Oops, Login First' 
+                loginDescription='You have to login first to see your result.'
+                signupTitle='Sign Up'
+                signupDescription='Sign up and the login.'
+                show={showLoginModal} 
+            />
+            {loading && <div className='w-screen h-screen bg-black absolute left-0 top-0 bg-opacity-80 cursor-not-allowed'></div>}
         </>
     );
 }
