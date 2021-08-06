@@ -1,14 +1,18 @@
 import groq from "groq"
 import { useSession } from "next-auth/client"
+import { useRouter } from "next/router"
 import { useState } from "react"
 import AvatarEditor from "react-avatar-editor"
 import client from '../../../client'
+import Spinner from "../Spinner"
 
 const EditConfirmModal = ({show, onCancel, onConfirm, file}) => {
-    const [session, loading] = useSession()
+    const [session, sessionLoading] = useSession()
+    const router = useRouter()
 
     const [scale, setScale] = useState(1)
     const [editor, setEditor] = useState(null)
+    const [loading, setLoading] = useState(false)
 
     const image = file ? URL.createObjectURL(file) : null
 
@@ -31,6 +35,7 @@ const EditConfirmModal = ({show, onCancel, onConfirm, file}) => {
 
     const handleClick = async () => {
         if (editor) {
+            setLoading(true)
             const croppedImageFile = dataURLtoFile(editor.getImageScaledToCanvas().toDataURL())
             const userRes = await client.fetch(groq`
                 *[_type == "user" && email == "${session.user.email}"][0] {
@@ -56,6 +61,8 @@ const EditConfirmModal = ({show, onCancel, onConfirm, file}) => {
                         .commit()
                         .then((updatedUser) => {
                             console.log(updatedUser)
+                            setLoading(false)
+                            router.reload()
                         })
                         .catch((err) => {
                             console.error('Oh no, the update failed: ', err.message)
@@ -64,7 +71,6 @@ const EditConfirmModal = ({show, onCancel, onConfirm, file}) => {
                 .catch((error) => {
                     console.error('Upload failed:', error.message)
                 })
-            
         }
     }
 
@@ -88,7 +94,7 @@ const EditConfirmModal = ({show, onCancel, onConfirm, file}) => {
                     <input id='scale' type="range" min="1" max="200" value={scale} onChange={e => setScale(e.target.value)} className='mb-4' />
                 </div>
                 <div className='mb-2 flex justify-center gap-4'>
-                    <button className='text-lg px-4 py-2 border-2 border-cust-red rounded-lg font-semibold hover:bg-cust-red hover:text-white'>
+                    <button className='text-lg px-4 py-2 border-2 border-cust-red rounded-lg font-semibold hover:bg-cust-red hover:text-white' onClick={onCancel}>
                         Cancel
                     </button>
                     <button className='text-lg px-4 py-2 bg-cust-red rounded-lg font-semibold text-white hover:brightness-110' onClick={handleClick}>
@@ -96,6 +102,7 @@ const EditConfirmModal = ({show, onCancel, onConfirm, file}) => {
                     </button>
                 </div>
             </div>
+            {loading && <div className='w-screen h-screen bg-black fixed left-0 top-0 bg-opacity-80 cursor-not-allowed flex items-center justify-center z-50'><Spinner width='30px' /></div>}
         </div>
     );
 }

@@ -43,7 +43,7 @@ const Avatar = () => {
                         :
                         <div className='w-full h-full bg-gray-400 animate-pulse' />
                     }
-                    {userImage && userImage.includes('sanity') && <div className={`${userImage ? 'hidden group-hover:block' : 'block'}`}>
+                    {(!userImage || (userImage && userImage.includes('sanity'))) && <div className={`${userImage ? 'hidden group-hover:block' : 'block'}`}>
                         <label htmlFor='avatar-input' className='absolute cursor-pointer right-0 bottom-0 bg-light-purple rounded-full w-5 h-5 flex items-center justify-center border border-gray-700'>
                             <EditIcon color='#ffffff' width='12px' />
                         </label>
@@ -65,6 +65,7 @@ const Avatar = () => {
             <EditConfirmModal
                 show={showEditConfirmModal}
                 file={imageFile}
+                onCancel={() => setShowEditConfirmModal(false)}
             />
         </>
     );
