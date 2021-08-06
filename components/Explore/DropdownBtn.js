@@ -46,7 +46,7 @@ const DropdownBtn = ({icon, label, dropMenu, queryName}) => {
             {dropMenu[active]}
             <div className={`bg-white z-10 absolute top-full right-1/2 transform translate-x-1/2 mt-2 md:right-0 md:transform-none rounded-lg overflow-hidden md:text-left ${showDrop ? 'block' : 'hidden'}`}>
                 {dropMenu.map((item, index) => 
-                    <p key={index} onClick={() => handleClick(index)} className={`py-4 px-6 text-text-primary whitespace-nowrap ${active == index ? 'bg-cust-purple text-white' : 'bg-white hover:bg-gray-200'}`}>{item}</p>
+                    <p key={index} onClick={() => handleClick(index)} className={`py-4 px-6 whitespace-nowrap ${active == index ? 'bg-cust-purple text-white' : 'bg-white hover:bg-gray-200 text-text-primary'}`}>{item}</p>
                 )}
             </div>
         </button>
