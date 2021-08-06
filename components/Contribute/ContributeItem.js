@@ -7,7 +7,11 @@ const ContributeItem = ({title, user, _createdAt, description, category}) => {
     const formatDate = d => {
         const date = new Date(d)
         const months = ['Januari', 'Februari', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'Desember']
-        return `${date.getDate()} ${months[date.getMonth()]} ${date.getFullYear()}`
+        if (date.getDate() == new Date().getDate() && date.getMonth() == new Date().getMonth() && date.getFullYear() == new Date().getFullYear()) {
+            return 'Today'
+        } else {
+            return `${date.getDate()} ${months[date.getMonth()]} ${date.getFullYear()}`
+        }
     }
 
     return (
