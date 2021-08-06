@@ -7,10 +7,15 @@ import Hero from '../components/Home/Hero'
 import Quiz from '../components/Home/Quiz'
 import Container from '../components/shared/Container'
 import CustomHead from '../components/shared/CustomHead'
+import Spinner from '../components/shared/Spinner'
 
 export default function Home({quiz}) {
   if (!quiz) {
-    return <p className='text-center'>Loading...</p>
+    return (
+      <Container>
+          <Spinner purple width='30px' />
+      </Container>
+    )
   }
 
   return (

@@ -10,13 +10,18 @@ import Button from "../../components/shared/Button";
 import ShareModal from "../../components/shared/ShareModal";
 import { useState } from "react";
 import { useRouter } from "next/router";
+import Spinner from "../../components/shared/Spinner";
 
 const QuizSinglePage = ({quiz}) => {
     const router = useRouter()
     const [showShareModal, setShowShareModal] = useState(false)
 
-    if (!quiz) {
-        return <p>Loading...</p>
+    if (router.isFallback || !quiz) {
+        return (
+            <Container>
+                <Spinner purple width='30px' />
+            </Container>
+        )
     }
 
     return (

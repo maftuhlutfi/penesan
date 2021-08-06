@@ -8,6 +8,7 @@ import Button from "../../components/shared/Button";
 import CustomHead from "../../components/shared/CustomHead";
 import { useState } from "react";
 import ShareModal from "../../components/shared/ShareModal";
+import Spinner from "../../components/shared/Spinner";
 
 const ResultPage = ({result, score, user, quiz}) => {
     const router = useRouter()
@@ -15,9 +16,11 @@ const ResultPage = ({result, score, user, quiz}) => {
     const [showShareModal, setShowShareModal] = useState(false)
 
     if (router.isFallback) {
-        return <Container>
-            <p>Loading...</p>
-        </Container>
+        return (
+            <Container>
+                <Spinner purple width='30px' />
+            </Container>
+        )
     }
 
     return (

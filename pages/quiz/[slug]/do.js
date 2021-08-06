@@ -19,6 +19,7 @@ import createResultId from "../../../components/DoTheQuiz/createResultId";
 import { useSession } from "next-auth/client";
 import LoginModal from "../../../components/shared/LoginModal";
 import { TempDataContext } from "../../../components/Context";
+import Spinner from "../../../components/shared/Spinner";
 
 const DoTheQuizPage = ({quiz}) => {
     const router = useRouter()
@@ -28,7 +29,7 @@ const DoTheQuizPage = ({quiz}) => {
     const [showLoginModal, setShowLoginModal] = useState(false)
 
     const [question, setQuestion] = useState(null)
-    const [questionNumber, setQuestionNumber] = useState(11)
+    const [questionNumber, setQuestionNumber] = useState(0)
     const [answerFromUser, setAnswerFromUser] = useState(null)
     const [message, setMessage] = useState(null)
     const [totalCorrect, setTotalCorrect] = useState(0)
@@ -125,8 +126,12 @@ const DoTheQuizPage = ({quiz}) => {
         }
     }, [score, session])
 
-    if (!quiz) {
-        return <p>Loading...</p>
+    if (router.isFallback || !quiz) {
+        return (
+            <Container>
+                <Spinner purple width='30px' />
+            </Container>
+        )
     }
 
     return (
@@ -178,7 +183,7 @@ const DoTheQuizPage = ({quiz}) => {
                             {answerFromUser && <Explaination text={question.explaination} />}
                         </>
                         :
-                        <p>Loading...</p>
+                        <Spinner width='30px' />
                     }
                 </section>
                 {message && <Message {...message} />}

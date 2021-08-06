@@ -5,10 +5,15 @@ import Quiz from "../components/Explore/Quiz";
 import Container from "../components/shared/Container"
 import CustomHead from "../components/shared/CustomHead"
 import Section from "../components/shared/Section"
+import Spinner from "../components/shared/Spinner";
 
 const ExplorePage = ({quiz, categories}) => {
     if (!quiz || !categories) {
-        return <p>Loading...</p>
+        return (
+            <Container>
+                <Spinner purple width='30px' />
+            </Container>
+        )
     }
 
     return (
