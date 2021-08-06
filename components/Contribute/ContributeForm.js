@@ -56,7 +56,7 @@ const ContributeForm = () => {
     const createContribution = async data => {
         setLoading(true)
         const userRes = await client.fetch(groq`
-            *[_type == "user" && email == "${session.user.email}" || name == "${session.user.name}"][0] {
+            *[_type == "user" && email == "${session.user.email}"][0] {
                 _id
             }
         `)

@@ -33,7 +33,7 @@ const EditConfirmModal = ({show, onCancel, onConfirm, file}) => {
         if (editor) {
             const croppedImageFile = dataURLtoFile(editor.getImageScaledToCanvas().toDataURL())
             const userRes = await client.fetch(groq`
-                *[_type == "user" && email == "${session.user.email}" || name == "${session.user.name}"][0] {
+                *[_type == "user" && email == "${session.user.email}"][0] {
                     _id,
                     image
                 }
