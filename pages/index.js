@@ -32,7 +32,7 @@ export default function Home({quiz}) {
 }
 
 const quizQuery = groq`
-    *[_type == "quiz"][0..2] {
+    *[_type == "quiz"][0..2] | order(_createdAt desc) {
         title,
         'slug': slug.current,
         mainImage

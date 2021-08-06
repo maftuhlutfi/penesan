@@ -18,7 +18,7 @@ const LoginModal = ({show, onClose, loginTitle, loginDescription, signupTitle, s
     }, [])
     
     return (
-        <div className={`w-screen h-screen overflow-y-auto pt-16 bg-black bg-opacity-80 flex items-center justify-center absolute left-0 top-0 ${!show && 'hidden'}`}>
+        <div className={`w-screen h-screen overflow-y-auto pt-12 bg-black bg-opacity-80 flex items-center justify-center fixed z-50 left-0 top-0 ${!show && 'hidden'}`}>
             <Wrapper>
                 <h1 className='text-xl font-bold text-center mb-2'>{isLoginModal ? loginTitle : signupTitle}</h1>
                 <p className='text-center text-sm mb-8 text-text-secondary'>{isLoginModal ? loginDescription : signupDescription}</p>

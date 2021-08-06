@@ -28,7 +28,7 @@ const Navigation = ({dark}) => {
 
     return (
         <nav className={`flex items-center w-full justify-between px-8 z-20 transition-all ease-in duration-200 
-             lg:px-24 lg:left-1/2 transform lg:-translate-x-1/2 ${isHome && scrollYPos <= 70 ? 'lg:absolute fixed pt-8 pb-1' : 'bg-white pt-8 pb-8 fixed'}`}>
+             lg:px-24 lg:left-1/2 transform lg:-translate-x-1/2 ${isHome && scrollYPos <= 70 ? 'lg:absolute fixed pt-8 pb-1' : 'bg-white pt-4 pb-4 fixed'}`}>
             <Logo dark={isHome && scrollYPos <= 70} width={75} />
             <div 
                 onBlur={() => setShowMenu(false)} 

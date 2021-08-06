@@ -3,7 +3,8 @@ import tempDataReducer from "./tempDataReducer"
 import { addAllTempData, addTempData, removeTempData } from "./tempDataAction"
 
 const initTempData = {
-    score: null
+    score: null,
+    contributionData: null
 }
 
 export const TempDataContext = createContext(initTempData)
@@ -22,6 +23,7 @@ const AllContextProvider = ({children}) => {
     return (
         <TempDataContext.Provider value={{
             score: tempDataState.score,
+            contributionData: tempDataState.contributionData,
             addTempData: (name, data) => tempDataDispatch(addTempData(name, data)),
             removeTempData: name => tempDataDispatch(removeTempData(name))
         }}>
