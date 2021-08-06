@@ -29,6 +29,7 @@ const ResultPage = ({result, score, user, quiz}) => {
                 title={`${user.name}'s Result - Quiz ${quiz.title}`}
                 description={`${user.name}'s score is ${score}. ${result.title.replace(/{name}/g, user.name || 'You')}`}
                 url={`https://debut.vercel.app/quiz/${quiz.slug.current}`}
+                image={urlFor(result.image).url()}
             />
             <Container style={{paddingBottom: '5rem'}}>
                 <div className='text-center w-full max-w-screen-md relative mx-auto leading-normal px-8 flex flex-col items-center'>
@@ -53,7 +54,7 @@ const ResultPage = ({result, score, user, quiz}) => {
             <ShareModal 
                 show={showShareModal}
                 onCancel={() => setShowShareModal(false)}
-                text={`${user.name}'s score is ${score}`}
+                text={`${user.name}'s score is ${score}. ${result.title.replace(/{name}/g, user.name || 'You')}`}
             />
         </>
     );
