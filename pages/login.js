@@ -25,6 +25,7 @@ const LoginPage = () => {
     const {email, password} = input
 
     const [csrfToken, setCsrfToken] = useState('')
+    const [origin, setOrigin] = useState('')
 
     const handleChange = e => {
         const {value, name} = e.target
@@ -47,6 +48,10 @@ const LoginPage = () => {
     useEffect(() => {
         setError(errorQuery)
     }, [errorQuery])
+
+    useEffect(() => {
+        setOrigin(window.location.origin)
+    }, [])
     
     return (
         <>
@@ -59,12 +64,12 @@ const LoginPage = () => {
                 <Wrapper>
                     <h1 className='text-xl font-bold text-center mb-6'>Login to DeBut</h1>
                     <div className='my-6 flex flex-col gap-4'>
-                        <LoginWithSocialBtn label='Continue with Google' icon='google' provider='google' callbackUrl='http://localhost:3000/explore' />
-                        <LoginWithSocialBtn label='Continue with Facebook' icon='facebook' provider='facebook' callbackUrl='http://localhost:3000/explore' />
-                        <LoginWithSocialBtn label='Continue with Twitter' icon='twitter' provider='twitter' callbackUrl='http://localhost:3000/explore' />
+                        <LoginWithSocialBtn label='Continue with Google' icon='google' provider='google' callbackUrl={`${origin}/explore`} />
+                        <LoginWithSocialBtn label='Continue with Facebook' icon='facebook' provider='facebook' callbackUrl={`${origin}/explore`} />
+                        <LoginWithSocialBtn label='Continue with Twitter' icon='twitter' provider='twitter' callbackUrl={`${origin}/explore`} />
                     </div>
                     <p className='text-sm text-gray-400 text-center'>— or —</p>
-                    <form className='my-6 flex flex-col gap-4' action='http://localhost:3000/api/auth/callback/sanity-login' method="POST" onSubmit={() => setLoading(true)}>
+                    <form className='my-6 flex flex-col gap-4' action={`${origin}/api/auth/callback/sanity-login`} method="POST" onSubmit={() => setLoading(true)}>
                         <input type="hidden" name="csrfToken" value={csrfToken} />
                         <TextInput id='email' type='email' name='email' label='Email' placeholder='mail@example.com' value={email} onChange={handleChange} required />
                         <TextInput id='password' type='password' name='password' label='Password' value={password} onChange={handleChange} required />
