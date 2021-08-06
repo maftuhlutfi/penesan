@@ -195,7 +195,7 @@ const DoTheQuizPage = ({quiz}) => {
                 signupDescription='Sign up and the login.'
                 show={showLoginModal} 
             />
-            {loading && <div className='w-screen h-screen bg-black absolute left-0 top-0 bg-opacity-80 cursor-not-allowed'></div>}
+            {!loading && <div className='w-screen h-screen bg-black fixed left-0 top-0 bg-opacity-80 cursor-not-allowed flex items-center justify-center z-50'><Spinner width='30px' /></div>}
         </>
     );
 }

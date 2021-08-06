@@ -12,6 +12,7 @@ import NProgress from 'nprogress'
 import ScrollToTopBtn from '../components/shared/ScrollToTopBtn'
 import { Provider } from 'next-auth/client'
 import Context from '../components/Context'
+import { useEffect } from 'react'
 
 //Binding events. 
 Router.events.on('routeChangeStart', () => NProgress.start()); 
@@ -22,6 +23,11 @@ function MyApp({ Component, pageProps }) {
   const router = useRouter()
   const pageWithoutNav = ['/quiz/[slug]/do', '/login', '/signup']
   const pageWithoutFooter = ['/quiz/[slug]/do', '/login', '/signup']
+
+  useEffect(() => {
+    if (!router.pathname.includes('/contrbute') || !router.pathname.includes('/do'))
+    window.localStorage.removeItem('tempData')
+  }, [router])
 
   return (
     <Provider session={pageProps.session}>

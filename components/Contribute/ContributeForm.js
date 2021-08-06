@@ -7,12 +7,15 @@ import Button from '../shared/Button';
 import { useRouter } from 'next/router';
 import LoginModal from '../shared/LoginModal';
 import { TempDataContext } from '../Context';
+import Spinner from '../shared/Spinner';
 
 const ContributeForm = () => {
-    const [session, loading] = useSession()
+    const [session, sessionLoading] = useSession()
     const router = useRouter()
 
     const {contributionData, addTempData, removeTempData} = useContext(TempDataContext)
+
+    const [loading, setLoading] = useState(false)
 
     const [categories, setCategories] = useState([])
     const [input, setInput] = useState({
@@ -51,6 +54,7 @@ const ContributeForm = () => {
     }
     
     const createContribution = async data => {
+        setLoading(true)
         const userRes = await client.fetch(groq`
             *[_type == "user" && email == "${session.user.email}" || name == "${session.user.name}"][0] {
                 _id
@@ -77,9 +81,11 @@ const ContributeForm = () => {
                 router.reload()
                 window.localStorage.removeItem('tempData')
                 removeTempData('contributionData')
+                setLoading(false)
             }
         } catch (err) {
             console.log(err)
+            setLoading(false)
         }
     }
 
@@ -134,6 +140,7 @@ const ContributeForm = () => {
             signupTitle='Sign Up'
             signupDescription='Create account and start contributing'
         />
+        {loading && <div className='w-screen h-screen bg-black fixed left-0 top-0 bg-opacity-80 cursor-not-allowed flex items-center justify-center z-50'><Spinner width='30px' /></div>}
         </>
     );
 }

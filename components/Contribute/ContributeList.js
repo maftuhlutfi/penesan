@@ -11,7 +11,7 @@ const ContributeList = () => {
     const [offset, setOffset] = useState(0)
     const [loading, setLoading] = useState(true)
 
-    const limit = 2
+    const limit = 6
 
     useEffect(() => {
         const getTotalContribution = async () => {
@@ -26,7 +26,7 @@ const ContributeList = () => {
     useEffect(() => {
         const getContributionList = async () => {
             const res = await client.fetch(groq`
-                *[_type == "contribution"] | order(_createdAt asc)[${offset}...${offset+limit}] {
+                *[_type == "contribution"] | order(_createdAt desc)[${offset}...${offset+limit}] {
                     ...,
                     "category": category->{title},
                     "user": user->{...}
