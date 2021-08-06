@@ -5,7 +5,7 @@ import menuList from "./menuList";
 const Footer = () => {
     return (
         <div className='w-full bg-text-primary text-center px-8 py-16 flex flex-col gap-10 md:px-20 lg:flex-row lg:justify-between lg:text-left'>
-            <div className='flex items-center flex-col lg:w-1/4'>
+            <div className='flex items-center lg:items-start flex-col lg:w-1/4'>
                 <Logo height={18} dark footer />
                 <p className='text-sm text-gray-400 mt-4 leading-normal lg:text-base'>Jl. Colombo Yogyakarta No.1, Karang Malang, Caturtunggal, Kec. Depok, Kabupaten Sleman, Daerah Istimewa Yogyakarta 55281</p>
             </div>

@@ -26,7 +26,7 @@ const Hero = () => {
                     </div>
                 </div>
             </Section>
-            <div className='absolute top-0 right-0 h-full hidden lg:block w-6/12' style={{maxHeight: 850}}>
+            <div className='absolute top-0 right-0 h-full hidden lg:block w-6/12' style={{maxHeight: 1024}}>
                 <Image src='/landing/hero-image.svg' layout='fill' className='object-cover object-left-bottom' alt='hero image desktop' />
             </div>
         </>

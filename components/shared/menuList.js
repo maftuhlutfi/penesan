@@ -10,6 +10,10 @@ const menuList = [
     {
         name: 'About',
         href: '/about'
+    },
+    {
+        name: 'Contribute',
+        href: '/contribute'
     }
 ]
 
