@@ -30,7 +30,7 @@ const ResultPage = ({result, score, user, quiz}) => {
                 description={`${user.name}'s score is ${score}. ${result.title.replace(/{name}/g, user.name || 'You')}`}
                 url={`https://debut.vercel.app/quiz/${quiz.slug.current}`}
             />
-            <Container style='pb-20'>
+            <Container style={{paddingBottom: '5rem'}}>
                 <div className='text-center w-full max-w-screen-md relative mx-auto leading-normal px-8 flex flex-col items-center'>
                     <h1 className='font-bold text-2xl lg:text-3xl mb-2 lg:mb-4'>You've Completed the Quiz</h1>
                     <p className='text-text-secondary'>{user.name + "'s" || 'Your'} score is <b>{score}</b> & here is your result:</p>

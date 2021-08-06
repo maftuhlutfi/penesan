@@ -12,7 +12,7 @@ import Spinner from '../components/shared/Spinner'
 export default function Home({quiz}) {
   if (!quiz) {
     return (
-      <Container>
+      <Container style={{backgroundColor: 'white'}}>
           <Spinner purple width='30px' />
       </Container>
     )
