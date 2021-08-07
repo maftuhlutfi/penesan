@@ -1,6 +1,6 @@
 const AnswerBtn = ({selected, isCorrectAnswer, children, isUserAnswered, onClick}) => {
     return (
-        <button onClick={onClick} className={`px-5 py-2 flex w-full md:w-max whitespace-nowrap rounded-lg font-semibold 
+        <button onClick={onClick} className={`px-5 py-2 flex w-full md:w-max text-left rounded-lg font-semibold 
             transform focus:shadow-none focus:translate-y-2 hover:brightness-110 lg:text-xl transition-all ease-in duration-200
             ${!isUserAnswered && 'bg-cust-red shadow-red'}
             ${isUserAnswered && selected && !isCorrectAnswer && 'bg-cust-red shadow-red'}
