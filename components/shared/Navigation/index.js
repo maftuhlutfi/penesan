@@ -1,10 +1,8 @@
 import { useSession } from 'next-auth/client'
 import { useRouter } from 'next/dist/client/router'
-import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import LoginBtn from '../LoginBtn'
 import Logo from '../Logo'
-import menuList from '../menuList'
 import Avatar from './Avatar'
 import NavItem from './NavItem'
 
@@ -29,7 +27,12 @@ const Navigation = ({dark}) => {
     return (
         <nav className={`flex items-center w-full justify-between px-8 z-20 transition-all ease-in duration-200 
              lg:px-24 lg:left-1/2 transform lg:-translate-x-1/2 ${isHome && scrollYPos <= 70 ? 'lg:absolute fixed pt-8 pb-1' : 'bg-white pt-4 pb-4 fixed'}`}>
-            <Logo dark={isHome && scrollYPos <= 70} width={75} />
+            <div className='hidden md:block'>
+                <Logo height={60} />
+            </div>
+            <div className='block md:hidden'>
+                <Logo dark={isHome && scrollYPos <= 70} height={45} />
+            </div>
             <div 
                 onBlur={() => setShowMenu(false)} 
                 className={`flex flex-col fixed w-screen h-screen top-0 right-0 bg-white pt-20 text-text-primary items-center 
