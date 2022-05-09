@@ -1,24 +1,34 @@
 import { createContext, useEffect, useReducer } from "react"
 import tempDataReducer from "./tempDataReducer"
 import { addAllTempData, addTempData, removeTempData } from "./tempDataAction"
+import languageReducer from "./languageReducer"
+import { changeLanguage } from "./languageAction"
 
 const initTempData = {
     score: null,
     contributionData: null
 }
 
-export const TempDataContext = createContext(initTempData)
+const initLanguage = {
+    lang: 'bug'
+}
 
-const AllContextProvider = ({children}) => {
+export const TempDataContext = createContext(initTempData)
+export const LanguageContext = createContext(initLanguage)
+
+const AllContextProvider = ({ children }) => {
     const [tempDataState, tempDataDispatch] = useReducer(tempDataReducer, initTempData)
+    const [languageState, languageDispatch] = useReducer(languageReducer, initLanguage)
 
     useEffect(() => {
         tempDataDispatch(addAllTempData(JSON.parse(window.localStorage.getItem('tempData'))))
+        languageDispatch(changeLanguage(JSON.parse(window.localStorage.getItem('lang'))))
     }, [])
 
     useEffect(() => {
         window.localStorage.setItem('tempData', JSON.stringify(tempDataState))
-    }, [tempDataState])
+        window.localStorage.setItem('lang', JSON.stringify(languageState))
+    }, [tempDataState, languageState])
 
     return (
         <TempDataContext.Provider value={{
@@ -27,7 +37,12 @@ const AllContextProvider = ({children}) => {
             addTempData: (name, data) => tempDataDispatch(addTempData(name, data)),
             removeTempData: name => tempDataDispatch(removeTempData(name))
         }}>
+            <LanguageContext.Provider value={{
+                lang: languageState.lang,
+                changeLanguage: (lang) => languageDispatch(changeLanguage(lang))
+            }}>
                 {children}
+            </LanguageContext.Provider>
         </TempDataContext.Provider>
     )
 }
