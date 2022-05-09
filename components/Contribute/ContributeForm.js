@@ -13,7 +13,7 @@ const ContributeForm = () => {
     const [session, sessionLoading] = useSession()
     const router = useRouter()
 
-    const {contributionData, addTempData, removeTempData} = useContext(TempDataContext)
+    const { contributionData, addTempData, removeTempData } = useContext(TempDataContext)
 
     const [loading, setLoading] = useState(false)
 
@@ -23,7 +23,7 @@ const ContributeForm = () => {
         category: '',
         description: ''
     })
-    const {title, category, description} = input
+    const { title, category, description } = input
 
     const [showLoginModal, setShowLoginModal] = useState(false)
 
@@ -45,14 +45,14 @@ const ContributeForm = () => {
     }, [])
 
     const handleChange = e => {
-        const {value, name} = e.target
+        const { value, name } = e.target
 
         setInput(prev => ({
             ...prev,
             [name]: value
         }))
     }
-    
+
     const createContribution = async data => {
         setLoading(true)
         const userRes = await client.fetch(groq`
@@ -102,47 +102,47 @@ const ContributeForm = () => {
     }
 
     useEffect(() => {
-        if(contributionData && session) {
+        if (contributionData && session) {
             createContribution(contributionData)
         }
     }, [contributionData, session])
 
     return (
         <>
-        <div className='w-full bg-white shadow-quiz-card border-2 border-gray-700 rounded-3xl flex flex-col items-center overflow-hidden lg:flex-row lg:py-16 lg:px-8'>
-            <div className='relative w-full h-80 md:h-80 lg:hidden'>
-                <Image src='/landing/contribute-img.svg' layout='fill' className='object-fit object-center' alt='contribute image' />
-            </div>
-            <div className='relative w-1/2 flex-shrink-0 rounded-3xl hidden lg:block' style={{height: 500}}>
-                <Image src='/landing/contribute-img.svg' layout='fill' className='object-fit object-center' alt='contribute image' />
-            </div>
-            <form id='contribute-form' className='my-8 w-full px-8 lg:my-0' onSubmit={handleSubmit}>
-                <p className='text-cust-purple tracking-widest font-semibold mb-1 lg:mb-2 lg:text-lg'>CONTRIBUTE</p>
-                <h1 className='text-2xl font-semibold lg:text-3xl'>Give Us Your Idea</h1>
-                <div className='flex gap-4 flex-col my-6 lg:my-8 lg:gap-6'>
-                    <input type='text' className='px-4 py-2 bg-more-light-purple bg-opacity-60 w-full rounded-lg border focus:border-cust-purple outline-none' name='title' value={title} onChange={handleChange} placeholder='Title' autoComplete='off' required />
-                    <select type='text' className='px-4 py-2 bg-more-light-purple bg-opacity-60 w-full rounded-lg border focus:border-cust-purple outline-none' name='category' value={category} onChange={handleChange} required>
-                        {categories.map((category, index) => 
-                            <option key={category._id} value={category._id}>{category.title}</option>    
-                        )}
-                    </select>
-                    <textarea className='px-4 py-2 bg-more-light-purple bg-opacity-60 w-full rounded-lg border focus:border-cust-purple outline-none' name='description' value={description} onChange={handleChange} rows='6' placeholder='Describe more' required  />
+            <div className='flex flex-col items-center w-full overflow-hidden bg-white border-2 border-gray-700 shadow-quiz-card rounded-3xl lg:flex-row lg:py-16 lg:px-8'>
+                <div className='relative w-full h-80 md:h-80 lg:hidden'>
+                    <Image src='/landing/contribute-img.jpg' layout='fill' className='object-center object-fit' alt='contribute image' />
                 </div>
-                <Button variant='primary' type='submit' form='contribute-form'>
-                    Submit
-                </Button>
-            </form>
-        </div>
-        <LoginModal 
-            show={showLoginModal}
-            loginTitle='Oops, Login First'
-            loginDescription='Please login to continue the contribution'
-            signupTitle='Sign Up'
-            signupDescription='Create account and start contributing'
-        />
-        {loading && <div className='w-screen h-screen bg-black fixed left-0 top-0 bg-opacity-80 cursor-not-allowed flex items-center justify-center z-50'><Spinner width='30px' /></div>}
+                <div className='relative flex-shrink-0 hidden w-1/2 rounded-3xl lg:block' style={{ height: 500 }}>
+                    <Image src='/landing/contribute-img.jpg' layout='fill' className='object-contain' alt='contribute image' />
+                </div>
+                <form id='contribute-form' className='w-full px-8 my-8 lg:my-0' onSubmit={handleSubmit}>
+                    <p className='mb-1 font-semibold tracking-widest text-cust-purple lg:mb-2 lg:text-lg'>CONTRIBUTE</p>
+                    <h1 className='text-2xl font-semibold lg:text-3xl'>Give Us Your Idea</h1>
+                    <div className='flex flex-col gap-4 my-6 lg:my-8 lg:gap-6'>
+                        <input type='text' className='w-full px-4 py-2 border rounded-lg outline-none bg-more-light-purple bg-opacity-60 focus:border-cust-purple' name='title' value={title} onChange={handleChange} placeholder='Title' autoComplete='off' required />
+                        <select type='text' className='w-full px-4 py-2 border rounded-lg outline-none bg-more-light-purple bg-opacity-60 focus:border-cust-purple' name='category' value={category} onChange={handleChange} required>
+                            {categories.map((category, index) =>
+                                <option key={category._id} value={category._id}>{category.title}</option>
+                            )}
+                        </select>
+                        <textarea className='w-full px-4 py-2 border rounded-lg outline-none bg-more-light-purple bg-opacity-60 focus:border-cust-purple' name='description' value={description} onChange={handleChange} rows='6' placeholder='Describe more' required />
+                    </div>
+                    <Button variant='primary' type='submit' form='contribute-form'>
+                        Submit
+                    </Button>
+                </form>
+            </div>
+            <LoginModal
+                show={showLoginModal}
+                loginTitle='Oops, Login First'
+                loginDescription='Please login to continue the contribution'
+                signupTitle='Sign Up'
+                signupDescription='Create account and start contributing'
+            />
+            {loading && <div className='fixed top-0 left-0 z-50 flex items-center justify-center w-screen h-screen bg-black cursor-not-allowed bg-opacity-80'><Spinner width='30px' /></div>}
         </>
     );
 }
- 
+
 export default ContributeForm;

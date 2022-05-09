@@ -7,7 +7,7 @@ import CustomHead from "../components/shared/CustomHead"
 import Section from "../components/shared/Section"
 import Spinner from "../components/shared/Spinner";
 
-const ExplorePage = ({quiz, categories}) => {
+const ExplorePage = ({ quiz, categories }) => {
     if (!quiz || !categories) {
         return (
             <Container>
@@ -18,8 +18,8 @@ const ExplorePage = ({quiz, categories}) => {
 
     return (
         <>
-            <CustomHead 
-                title="Explore Quiz - DeBut"
+            <CustomHead
+                title="Explore Quiz - Penesan"
                 description="Explore all available quiz that give you informations in a fun way"
                 url="https://debut.vercel.app/explore"
             />
@@ -33,7 +33,7 @@ const ExplorePage = ({quiz, categories}) => {
                                 label='Sort'
                                 dropMenu={['Popular', 'Newest', 'Rating']}
                             /> */}
-                            <DropdownBtn 
+                            <DropdownBtn
                                 icon='icon-filter'
                                 queryName='category'
                                 dropMenu={['All Categories', ...categories.map(category => category.title)]}
@@ -46,7 +46,7 @@ const ExplorePage = ({quiz, categories}) => {
         </>
     );
 }
- 
+
 export default ExplorePage;
 
 const quizQuery = (category) => {
@@ -58,7 +58,7 @@ const quizQuery = (category) => {
             categories[]->{
                 title
             }
-        }` 
+        }`
     }
 
     return groq`
@@ -80,7 +80,7 @@ const categoryQuery = groq`
 `
 
 export async function getServerSideProps(context) {
-    const {category} = context.query
+    const { category } = context.query
 
     const quiz = await client.fetch(quizQuery(category))
     const categories = await client.fetch(categoryQuery)

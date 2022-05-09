@@ -6,7 +6,7 @@ import Logo from '../Logo'
 import Avatar from './Avatar'
 import NavItem from './NavItem'
 
-const Navigation = ({dark}) => {
+const Navigation = ({ dark }) => {
     const pathname = useRouter().pathname
     const isHome = pathname == '/'
 
@@ -25,44 +25,37 @@ const Navigation = ({dark}) => {
     }, [])
 
     return (
-        <nav className={`flex items-center w-full justify-between px-8 z-20 transition-all ease-in duration-200 
-             lg:px-24 lg:left-1/2 transform lg:-translate-x-1/2 ${isHome && scrollYPos <= 70 ? 'lg:absolute fixed pt-8 pb-1' : 'bg-white pt-4 pb-4 fixed'}`}>
-            <div className='hidden md:block'>
-                <Logo height={60} />
-            </div>
-            <div className='block md:hidden'>
-                <Logo dark={isHome && scrollYPos <= 70} height={45} />
-            </div>
-            <div 
-                onBlur={() => setShowMenu(false)} 
-                className={`flex flex-col fixed w-screen h-screen top-0 right-0 bg-white pt-20 text-text-primary items-center 
+        <nav className={`w-full px-8 z-20 transition-all ease-in duration-200 
+             lg:px-24 lg:left-1/2 transform lg:-translate-x-1/2 bg-white pt-4 pb-4 fixed`}>
+            <div className='flex items-center justify-between w-full max-w-[1536px] relative mx-auto'>
+                <div className='hidden md:block'>
+                    <Logo height={60} />
+                </div>
+                <div className='block md:hidden'>
+                    <Logo height={45} />
+                </div>
+                <div
+                    onBlur={() => setShowMenu(false)}
+                    className={`flex flex-col fixed w-screen h-screen top-0 right-0 bg-white pt-20 text-text-primary items-center 
                     lg:static lg:h-auto lg:w-auto lg:flex-row lg:pt-0 lg:bg-transparent lg:items-center
                     transform transition duration-500 ease-in-out ${!showMenu && 'translate-x-full lg:transform-none'}`}
-            >
-                <NavItem isHome={isHome && scrollYPos <= 70} />
-                {session ? 
-                    <Avatar />
-                    :
-                    <LoginBtn isHome={isHome && scrollYPos <= 70} />
-                }
-            </div>
-            <div className="absolute right-8 block w-6 ml-2 lg:hidden cursor-pointer z-20" onClick={() => setShowMenu(prev => !prev)}>
-                {isHome && scrollYPos <= 70 ?
-                    <>
-                        <span className={`block rounded-full absolute h-0.5 w-6 transform transition duration-500 ease-in-out ${showMenu ? 'rotate-45 bg-cust-purple' : '-translate-y-2 bg-white'}`} />
-                        <span className={`block rounded-full absolute h-0.5 w-6 transform transition duration-500 ease-in-out ${showMenu ? 'opacity-0 -translate-x-6' : 'bg-white'}`} />
-                        <span className={`block rounded-full absolute h-0.5 w-6 transform transition duration-500 ease-in-out ${showMenu ? '-rotate-45 bg-cust-purple' : 'translate-y-2 bg-white'}`} />
-                    </>
-                    :
-                    <>
-                        <span className={`block rounded-full absolute h-0.5 w-6 transform transition duration-500 ease-in-out bg-cust-purple ${showMenu ? 'rotate-45' : '-translate-y-2'}`} />
-                        <span className={`block rounded-full absolute h-0.5 w-6 transform transition duration-500 ease-in-out bg-cust-purple ${showMenu && 'opacity-0 -translate-x-6'}`} />
-                        <span className={`block rounded-full absolute h-0.5 w-6 transform transition duration-500 ease-in-out bg-cust-purple ${showMenu ? '-rotate-45' : 'translate-y-2'}`} />
-                    </>
-                }
+                >
+                    <NavItem />
+                    {session ?
+                        <Avatar />
+                        :
+                        <LoginBtn />
+                    }
+                </div>
+                <div className="absolute z-20 block w-6 ml-2 cursor-pointer right-8 lg:hidden" onClick={() => setShowMenu(prev => !prev)}>
+                    <span className={`block rounded-full absolute h-0.5 w-6 transform transition duration-500 ease-in-out bg-cust-purple ${showMenu ? 'rotate-45' : '-translate-y-2'}`} />
+                    <span className={`block rounded-full absolute h-0.5 w-6 transform transition duration-500 ease-in-out bg-cust-purple ${showMenu && 'opacity-0 -translate-x-6'}`} />
+                    <span className={`block rounded-full absolute h-0.5 w-6 transform transition duration-500 ease-in-out bg-cust-purple ${showMenu ? '-rotate-45' : 'translate-y-2'}`} />
+
+                </div>
             </div>
         </nav>
     );
 }
- 
+
 export default Navigation;

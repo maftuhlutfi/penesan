@@ -1,4 +1,4 @@
-import {getCsrfToken, signIn} from 'next-auth/client'
+import { getCsrfToken, signIn } from 'next-auth/client'
 import CustomHead from "../components/shared/CustomHead";
 import Container from "../components/LoginSignUp/Container";
 import Wrapper from "../components/LoginSignUp/Wrapper";
@@ -22,13 +22,13 @@ const LoginPage = () => {
     const [loading, setLoading] = useState(false)
 
     const [input, setInput] = useState(initInput)
-    const {email, password} = input
+    const { email, password } = input
 
     const [csrfToken, setCsrfToken] = useState('')
     const [origin, setOrigin] = useState('')
 
     const handleChange = e => {
-        const {value, name} = e.target
+        const { value, name } = e.target
         setError(null)
 
         setInput(prev => ({
@@ -52,11 +52,11 @@ const LoginPage = () => {
     useEffect(() => {
         setOrigin(window.location.origin)
     }, [])
-    
+
     return (
         <>
             <CustomHead
-                title='Login - DeBut'
+                title='Login - Penesan'
                 description='Login to get information with fun'
                 url='https://debut.vercel.app/login'
             />
@@ -91,5 +91,5 @@ const LoginPage = () => {
         </>
     );
 }
- 
+
 export default LoginPage;

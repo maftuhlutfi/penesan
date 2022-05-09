@@ -1,5 +1,5 @@
 import CustomHead from "../components/shared/CustomHead"
-import Container from "../components/shared/Container" 
+import Container from "../components/shared/Container"
 import ContributeForm from "../components/Contribute/ContributeForm"
 import Section from "../components/shared/Section";
 import ContributeList from "../components/Contribute/ContributeList";
@@ -8,7 +8,7 @@ const ContributionPage = () => {
     return (
         <>
             <CustomHead
-                title='Contribute Your Ideas - DeBut'
+                title='Contribute Your Ideas - Penesan'
                 description='Share your ideas and challenge the others.'
                 url='https://debut.vercel.app/contribute'
             />
@@ -25,5 +25,5 @@ const ContributionPage = () => {
         </>
     );
 }
- 
+
 export default ContributionPage;

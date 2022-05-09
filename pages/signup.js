@@ -1,5 +1,5 @@
 import Button from "../components/shared/Button"
-import {signIn, signOut} from 'next-auth/client'
+import { signIn, signOut } from 'next-auth/client'
 import CustomHead from "../components/shared/CustomHead";
 import Container from "../components/LoginSignUp/Container";
 import Wrapper from "../components/LoginSignUp/Wrapper";
@@ -22,7 +22,7 @@ const SignUpPage = () => {
     }
 
     const [input, setInput] = useState(initInput)
-    const {nameInput, email, password, confirmPassword} = input
+    const { nameInput, email, password, confirmPassword } = input
     const [isConfirmPasswordSame, setIsConfirmPasswordSame] = useState(false)
     const [message, setMessage] = useState(null)
     const [loading, setLoading] = useState(false)
@@ -32,7 +32,7 @@ const SignUpPage = () => {
     }, [password, confirmPassword])
 
     const handleChange = e => {
-        const {name, value} = e.target
+        const { name, value } = e.target
 
         setInput(prev => ({
             ...prev,
@@ -46,7 +46,7 @@ const SignUpPage = () => {
         e.preventDefault()
 
         if (!isConfirmPasswordSame) {
-            setMessage({type: 'error', text: 'Password and Confirmation Password is not same.'})
+            setMessage({ type: 'error', text: 'Password and Confirmation Password is not same.' })
             return
         }
 
@@ -61,13 +61,13 @@ const SignUpPage = () => {
         console.log(res)
 
         if (res.error) {
-            setMessage({type: 'error', text: res.error})
+            setMessage({ type: 'error', text: res.error })
             setLoading(false)
             return
         }
 
         if (res.email) {
-            setMessage({type: 'success', text: 'Successfully create an account, please login.'})
+            setMessage({ type: 'success', text: 'Successfully create an account, please login.' })
             const goToLogin = setInterval(() => {
                 router.push('/login')
                 clearInterval(goToLogin)
@@ -78,7 +78,7 @@ const SignUpPage = () => {
     return (
         <>
             <CustomHead
-                title='Login - DeBut'
+                title='Login - Penesan'
                 description='Login to get information with fun'
                 url='https://debut.vercel.app/login'
             />
@@ -95,16 +95,16 @@ const SignUpPage = () => {
                     <form className='my-6 flex flex-col gap-4' onSubmit={handleSubmit}>
                         <TextInput id='name' type='text' name='nameInput' label='Name' value={nameInput} onChange={handleChange} required />
                         <TextInput id='email' type='email' name='email' label='Email' placeholder='mail@example.com' value={email} onChange={handleChange} required />
-                        <TextInput id='password' type='password' name='password' label='Password' value={password} onChange={handleChange} required 
-                            style={`${isConfirmPasswordSame ? 'border-green-400': 'border-red-400'} ${!(password && confirmPassword) && 'border-gray-200 focus:border-cust-purple'}`} 
+                        <TextInput id='password' type='password' name='password' label='Password' value={password} onChange={handleChange} required
+                            style={`${isConfirmPasswordSame ? 'border-green-400' : 'border-red-400'} ${!(password && confirmPassword) && 'border-gray-200 focus:border-cust-purple'}`}
                         />
-                        <TextInput id='confirm-password' type='password' name='confirmPassword' label='Confirm Password' value={confirmPassword} onChange={handleChange} required 
-                            style={`${isConfirmPasswordSame ? 'border-green-400': 'border-red-400'} ${!(password && confirmPassword) && 'border-gray-200 focus:border-cust-purple'}`} 
+                        <TextInput id='confirm-password' type='password' name='confirmPassword' label='Confirm Password' value={confirmPassword} onChange={handleChange} required
+                            style={`${isConfirmPasswordSame ? 'border-green-400' : 'border-red-400'} ${!(password && confirmPassword) && 'border-gray-200 focus:border-cust-purple'}`}
                         />
                         <button type='submit' className={`w-full mt-2 bg-cust-purple text-white font-medium py-2 rounded flex items-center justify-center ${loading && 'cursor-not-allowed bg-opacity-90'}`}>
                             {loading ?
                                 <Spinner width='24px' />
-                                : 
+                                :
                                 'Sign Up'
                             }
                         </button>
@@ -119,5 +119,5 @@ const SignUpPage = () => {
         </>
     );
 }
- 
+
 export default SignUpPage;

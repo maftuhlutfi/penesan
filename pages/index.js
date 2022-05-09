@@ -9,11 +9,11 @@ import Container from '../components/shared/Container'
 import CustomHead from '../components/shared/CustomHead'
 import Spinner from '../components/shared/Spinner'
 
-export default function Home({quiz}) {
+export default function Home({ quiz }) {
   if (!quiz) {
     return (
-      <Container style={{backgroundColor: 'white'}}>
-          <Spinner purple width='30px' />
+      <Container style={{ backgroundColor: 'white' }}>
+        <Spinner purple width='30px' />
       </Container>
     )
   }
@@ -21,11 +21,11 @@ export default function Home({quiz}) {
   return (
     <>
       <CustomHead
-        title="DeBut - Pandemi Gabut"
-        description="Tired with COVID-19 News? Get Covid Info with Fun now! Challenge yourself. See your future predictions, according to your knowledge of the plague. [of course it's just a joke]"
+        title="Penesan - Prove it Daeng!"
+        description="Challenge yourself. Get to know the local culture of Makassar, and see the appreciation you will receive (of course it's just a joke)"
         url="https://debut.vercel.app"
       />
-      <Container style={{backgroundColor: 'white'}}>
+      <Container style={{ backgroundColor: 'white' }}>
         <Hero />
         <Quiz quiz={quiz} />
         <Guide />
@@ -45,11 +45,11 @@ const quizQuery = groq`
 `
 
 export async function getServerSideProps(context) {
-    const quiz = await client.fetch(quizQuery)
+  const quiz = await client.fetch(quizQuery)
 
-    return {
-        props: {
-            quiz
-        }, // will be passed to the page component as props
-    }
+  return {
+    props: {
+      quiz
+    }, // will be passed to the page component as props
+  }
 }

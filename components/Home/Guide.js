@@ -9,31 +9,31 @@ const Guide = () => {
         'Work on the problem with each other\'s intelligence.',
         'Get future predictions, based on answers.  Don\'t forget to share with your friends.'
     ]
-    
+
     return (
         <Section>
-            <div className='w-full px-8 py-12 bg-more-light-purple rounded-2xl flex flex-col items-center md:px-12 lg:flex-row lg:justify-between lg:rounded-3xl'>
+            <div className='flex flex-col items-center w-full px-8 py-12 bg-more-light-purple rounded-2xl md:px-12 lg:flex-row lg:justify-between lg:rounded-3xl'>
                 <div className='text-center lg:hidden'>
-                    <p className='text-cust-purple tracking-widest font-semibold mb-2 lg:text-lg'>HOW TO</p>
+                    <p className='mb-2 font-semibold tracking-widest text-cust-purple lg:text-lg'>HOW TO</p>
                     <h1 className='text-2xl font-semibold lg:text-3xl'>Play Your Fun</h1>
                 </div>
-                <div className='relative w-full h-80 -my-4 max-w-sm md:my-2 lg:max-w-2xl lg:h-screen' style={{maxHeight: 520}}>
-                    <Image src='/landing/guide-img.svg' layout='fill' className='object-cover object-center' alt='guide image' />
+                <div className='relative w-[90%] my-16 h-96 lg:my-2 lg:max-w-[600px] lg:h-screen' style={{ maxHeight: 520 }}>
+                    <Image src='/landing/guide-img.jpg' layout='fill' className='object-cover object-center rounded-[32px]' alt='guide image' />
                 </div>
                 <div className='lg:w-2/5'>
-                    <div className='text-left hidden lg:block mb-8'>
-                        <p className='text-cust-purple tracking-widest font-semibold mb-2 lg:text-lg'>HOW TO</p>
+                    <div className='hidden mb-8 text-left lg:block'>
+                        <p className='mb-2 font-semibold tracking-widest text-cust-purple lg:text-lg'>HOW TO</p>
                         <h1 className='text-2xl font-semibold lg:text-3xl'>Play Your Fun</h1>
                     </div>
                     <div className='flex flex-col gap-4'>
-                        {guide.map((item, index) => 
+                        {guide.map((item, index) =>
                             <div key={index} className='flex gap-4'>
-                                <p className='bg-cust-yellow border-2 border-gray-800 rounded-full w-10 h-10 flex-shrink-0 flex items-center justify-center text-xl'>{index + 1}</p>
+                                <p className='flex items-center justify-center flex-shrink-0 w-10 h-10 text-xl border-2 border-gray-800 rounded-full bg-cust-yellow'>{index + 1}</p>
                                 <p className='text-sm leading-normal lg:text-base'>{item}</p>
                             </div>
                         )}
                     </div>
-                    <div className='mt-8 flex justify-center lg:justify-start'>
+                    <div className='flex justify-center mt-8 lg:justify-start'>
                         <Link href='/explore'>
                             <Button variant='primary'>
                                 Play Now!
@@ -45,5 +45,5 @@ const Guide = () => {
         </Section>
     );
 }
- 
+
 export default Guide;
