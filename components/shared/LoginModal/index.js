@@ -25,7 +25,7 @@ const LoginModal = ({ show, onClose, loginTitle, loginDescription, signupTitle, 
                 <div className='flex flex-col gap-4 my-6'>
                     <LoginWithSocialBtn label='Continue with Google' icon='google' provider='google' callbackUrl={locationHref} />
                     <LoginWithSocialBtn label='Continue with Facebook' icon='facebook' provider='facebook' callbackUrl={locationHref} />
-                    <LoginWithSocialBtn label='Continue with Twitter' icon='twitter' provider='twitter' callbackUrl={locationHref} />
+                    {/* <LoginWithSocialBtn label='Continue with Twitter' icon='twitter' provider='twitter' callbackUrl={locationHref} /> */}
                 </div>
                 <p className='text-sm text-center text-gray-400'>— or —</p>
                 {isLoginModal ?

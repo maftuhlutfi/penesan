@@ -66,7 +66,7 @@ const LoginPage = () => {
                     <div className='flex flex-col gap-4 my-6'>
                         <LoginWithSocialBtn label='Continue with Google' icon='google' provider='google' callbackUrl={`${origin}/explore`} />
                         <LoginWithSocialBtn label='Continue with Facebook' icon='facebook' provider='facebook' callbackUrl={`${origin}/explore`} />
-                        <LoginWithSocialBtn label='Continue with Twitter' icon='twitter' provider='twitter' callbackUrl={`${origin}/explore`} />
+                        {/* <LoginWithSocialBtn label='Continue with Twitter' icon='twitter' provider='twitter' callbackUrl={`${origin}/explore`} /> */}
                     </div>
                     <p className='text-sm text-center text-gray-400'>— or —</p>
                     <form className='flex flex-col gap-4 my-6' action={`${origin}/api/auth/callback/sanity-login`} method="POST" onSubmit={() => setLoading(true)}>
