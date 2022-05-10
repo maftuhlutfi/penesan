@@ -30,7 +30,7 @@ const QuizSinglePage = ({ quiz }) => {
                 title={quiz.title}
                 description={quiz.description[0].children[0].text}
                 image={urlFor(quiz.mainImage).url()}
-                url={`https://debut.vercel.app/quiz/${quiz.slug.current}`}
+                url={`https://www.xn--slfd.id/quiz/${quiz.slug.current}`}
             />
             <Container>
                 <Section>

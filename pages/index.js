@@ -22,8 +22,8 @@ export default function Home({ quiz }) {
     <>
       <CustomHead
         title="Penesan - Prove it Daeng!"
-        description="Challenge yourself. Get to know the local culture of Makassar, and see the appreciation you will receive (of course it's just a joke)"
-        url="https://debut.vercel.app"
+        description="Tantang dirimu. Kenali budaya lokal Bugis melalui kuis dan lihat hasilnya!"
+        url="https://www.xn--slfd.id"
       />
       <Container style={{ backgroundColor: 'white' }}>
         <Hero />

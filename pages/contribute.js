@@ -12,8 +12,8 @@ const ContributionPage = () => {
         <>
             <CustomHead
                 title='Contribute Your Ideas - Penesan'
-                description='Share your ideas and challenge the others.'
-                url='https://debut.vercel.app/contribute'
+                description='Bagikan idemu dan tantang pengguna lain.'
+                url='https://www.xn--slfd.id/contribute'
             />
             <Container>
                 <Section style='max-w-screen-xl'>

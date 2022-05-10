@@ -87,7 +87,7 @@ const SignUpPage = () => {
             <CustomHead
                 title='Login - Penesan'
                 description='Login to get information with fun'
-                url='https://debut.vercel.app/login'
+                url='https://www.xn--slfd.id/login'
             />
             <Container>
                 <Wrapper>

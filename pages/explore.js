@@ -20,12 +20,12 @@ const ExplorePage = ({ quiz, categories }) => {
         <>
             <CustomHead
                 title="Explore Quiz - Penesan"
-                description="Explore all available quiz that give you informations in a fun way"
-                url="https://debut.vercel.app/explore"
+                description="Eksplor semua kuis yang akan memberikan info tentang bugis dengan menarik"
+                url="https://www.xn--slfd.id/explore"
             />
             <Container>
                 <Section>
-                    <div className='flex flex-col items-center md:flex-row md:justify-between md:items-center mb-10'>
+                    <div className='flex flex-col items-center mb-10 md:flex-row md:justify-between md:items-center'>
                         <h1 className='text-3xl font-semibold'>Explore All Quiz</h1>
                         <div className='flex mt-6 md:mt-0'>
                             {/* <DropdownBtn 

@@ -28,7 +28,7 @@ const ResultPage = ({ result, score, user, quiz }) => {
             <CustomHead
                 title={`${user.name}'s Result - Quiz ${quiz.title}`}
                 description={`${user.name}'s score is ${score}. ${result.title.replace(/{name}/g, user.name || 'You')}`}
-                url={`https://debut.vercel.app/quiz/${quiz.slug.current}`}
+                url={`https://www.xn--slfd.id/quiz/${quiz.slug.current}`}
                 image={urlFor(result.image).url()}
             />
             <Container style={{ paddingBottom: '5rem' }}>

@@ -145,7 +145,7 @@ const DoTheQuizPage = ({ quiz }) => {
                 title={quiz.title}
                 description={quiz.description[0].children[0].text}
                 image={urlFor(quiz.mainImage).url()}
-                url={`https://debut.vercel.app/quiz/${quiz.slug.current}/do`}
+                url={`https://www.xn--slfd.id/quiz/${quiz.slug.current}/do`}
             />
             <Container>
                 <div className='fixed left-0 z-30 flex justify-between w-full px-8 pb-4 lg:px-0 bg-text-primary lg:static'>
