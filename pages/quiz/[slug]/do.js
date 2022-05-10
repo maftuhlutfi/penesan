@@ -18,14 +18,17 @@ import createResultId from "../../../components/DoTheQuiz/createResultId";
 
 import { useSession } from "next-auth/client";
 import LoginModal from "../../../components/shared/LoginModal";
-import { TempDataContext } from "../../../components/Context";
+import { LanguageContext, TempDataContext } from "../../../components/Context";
 import Spinner from "../../../components/shared/Spinner";
+import LanguageSelector from "../../../components/shared/LanguageSelector";
 
-const DoTheQuizPage = ({quiz}) => {
+const DoTheQuizPage = ({ quiz }) => {
     const router = useRouter()
     const [session, sessionLoading] = useSession()
 
-    const {score, addTempData, removeTempData} = useContext(TempDataContext)
+    const { lang } = useContext(LanguageContext)
+
+    const { score, addTempData, removeTempData } = useContext(TempDataContext)
     const [showLoginModal, setShowLoginModal] = useState(false)
 
     const [question, setQuestion] = useState(null)
@@ -33,7 +36,7 @@ const DoTheQuizPage = ({quiz}) => {
     const [answerFromUser, setAnswerFromUser] = useState(null)
     const [message, setMessage] = useState(null)
     const [totalCorrect, setTotalCorrect] = useState(0)
-    
+
     const [loading, setLoading] = useState(false)
 
     useEffect(() => {
@@ -59,7 +62,7 @@ const DoTheQuizPage = ({quiz}) => {
                 type: question && answer == question.correctAnswer ? 'correct' : 'wrong',
                 message: question && answer == question.correctAnswer ? 'Your answer is correct ✓' : 'Your answer is wrong ✖'
             })
-            
+
             if (answer == question.correctAnswer) {
                 setTotalCorrect(prev => prev + 1)
             }
@@ -110,7 +113,7 @@ const DoTheQuizPage = ({quiz}) => {
         const score = totalCorrect / quiz.totalQuestions * 100
 
         if (questionNumber + 1 < quiz.totalQuestions) {
-            setQuestionNumber(prev => prev+1)
+            setQuestionNumber(prev => prev + 1)
         } else if (!session) {
             addTempData('score', score)
             setShowLoginModal(true)
@@ -121,7 +124,7 @@ const DoTheQuizPage = ({quiz}) => {
     }
 
     useEffect(() => {
-        if(score && session) {
+        if (score && session) {
             createResult(score)
         }
     }, [score, session])
@@ -134,22 +137,25 @@ const DoTheQuizPage = ({quiz}) => {
         )
     }
 
+    console.log(question.explaination.map(t => t.children.map(c => c.text).join(". ")).join("\n").split(" || "))
+
     return (
         <>
-            <CustomHead 
+            <CustomHead
                 title={quiz.title}
                 description={quiz.description[0].children[0].text}
                 image={urlFor(quiz.mainImage).url()}
                 url={`https://debut.vercel.app/quiz/${quiz.slug.current}/do`}
             />
             <Container>
-                <div className='flex fixed w-full left-0 px-8 lg:px-0 pb-4 bg-text-primary lg:static z-30 justify-between'>
+                <div className='fixed left-0 z-30 flex justify-between w-full px-8 pb-4 lg:px-0 bg-text-primary lg:static'>
                     <div className='flex gap-4 text-xs md:text-base'>
                         <PauseMenu totalCorrect={totalCorrect} retryQuiz={handleRetry} />
-                        <QuestionNumber totalQuestions={quiz.totalQuestions} current={questionNumber+1} />
+                        <QuestionNumber totalQuestions={quiz.totalQuestions} current={questionNumber + 1} />
+                        <LanguageSelector dark={true} />
                     </div>
                     <div className='flex gap-6'>
-                        {answerFromUser && 
+                        {answerFromUser &&
                             <div className={`bg-white w-full fixed bottom-0 left-0 pt-4 pb-6 flex justify-end px-4 lg:static lg:bg-transparent lg:p-0`}>
                                 <Button variant='secondary' onClick={handleNextFinish}>
                                     {questionNumber + 1 < quiz.totalQuestions ? 'Next' : 'Finish'}
@@ -159,13 +165,13 @@ const DoTheQuizPage = ({quiz}) => {
                         <FullscreenBtn />
                     </div>
                 </div>
-                <section className='pt-24 pb-24 lg:pb-8 lg:pt-20 w-full max-w-4xl lg:px-20 relative m-auto'>
-                    {question ? 
+                <section className='relative w-full max-w-4xl pt-24 pb-24 m-auto lg:pb-8 lg:pt-20 lg:px-20'>
+                    {question ?
                         <>
-                            <Question text={question.question} />
+                            <Question text={lang == 'indo' ? question.question.split(' || ')[0] : question.question.split(' || ')[1]} />
                             <AnswersContainer>
-                                {question.answers.map((answer, index) => 
-                                    <AnswerBtn 
+                                {question.answers.map((answer, index) =>
+                                    <AnswerBtn
                                         key={index}
                                         onClick={() => handleUserClickAnswer(answer)}
                                         selected={answerFromUser == answer}
@@ -176,11 +182,11 @@ const DoTheQuizPage = ({quiz}) => {
                                             ${answerFromUser && question.correctAnswer == answer && 'bg-green-500 border-none'}
                                         `}
                                     >
-                                        {answer}
+                                        {lang == 'indo' ? answer.split(' || ')[0] : answer.split(' || ')[1]}
                                     </AnswerBtn>
                                 )}
                             </AnswersContainer>
-                            {answerFromUser && <Explaination text={question.explaination} />}
+                            {answerFromUser && <Explaination text={lang == 'indo' ? question.explaination.map(t => t.children.map(c => c.text).join(". ")).join("\n").split(" || ")[0] : question.explaination.map(t => t.children.map(c => c.text).join(". ")).join("\n").split(" || ")[1]} />}
                         </>
                         :
                         <Spinner width='30px' />
@@ -188,18 +194,18 @@ const DoTheQuizPage = ({quiz}) => {
                 </section>
                 {message && <Message {...message} />}
             </Container>
-            <LoginModal 
-                loginTitle='Oops, Login First' 
+            <LoginModal
+                loginTitle='Oops, Login First'
                 loginDescription='You have to login first to see your result.'
                 signupTitle='Sign Up'
                 signupDescription='Sign up and the login.'
-                show={showLoginModal} 
+                show={showLoginModal}
             />
-            {loading && <div className='w-screen h-screen bg-black fixed left-0 top-0 bg-opacity-80 cursor-not-allowed flex items-center justify-center z-50'><Spinner width='30px' /></div>}
+            {loading && <div className='fixed top-0 left-0 z-50 flex items-center justify-center w-screen h-screen bg-black cursor-not-allowed bg-opacity-80'><Spinner width='30px' /></div>}
         </>
     );
 }
- 
+
 export default DoTheQuizPage;
 
 const quizSlugQuery = groq`
@@ -217,7 +223,7 @@ const quizQuery = groq`
     }
 `
 
-export async function getStaticProps({params}) {
+export async function getStaticProps({ params }) {
     const quiz = await client.fetch(quizQuery, {
         slug: params.slug
     })
@@ -233,7 +239,7 @@ export async function getStaticPaths() {
     const paths = await client.fetch(quizSlugQuery)
 
     return {
-        paths: paths.map(slug => ({params: {slug}})),
+        paths: paths.map(slug => ({ params: { slug } })),
         fallback: true
     }
 }

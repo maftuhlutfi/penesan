@@ -2,6 +2,7 @@ import { useSession } from 'next-auth/client'
 import { useRouter } from 'next/dist/client/router'
 import { useEffect, useState, useContext } from 'react'
 import { LanguageContext } from '../../Context'
+import LanguageSelector from '../LanguageSelector'
 import LoginBtn from '../LoginBtn'
 import Logo from '../Logo'
 import Avatar from './Avatar'
@@ -10,7 +11,6 @@ import NavItem from './NavItem'
 const Navigation = ({ dark }) => {
     const pathname = useRouter().pathname
 
-    const { lang, changeLanguage } = useContext(LanguageContext)
 
     const [session, loading] = useSession()
 
@@ -31,10 +31,7 @@ const Navigation = ({ dark }) => {
                     <div className='block md:hidden'>
                         <Logo height={45} />
                     </div>
-                    <select className='p-2 ml-4 bg-red-100 rounded-lg lg:ml-8 focus:outline-none focus:ring-2 focus:ring-cust-red' value={lang} onChange={e => changeLanguage(e.target.value)}>
-                        <option value='bug'>ᨅᨘᨁᨗᨔᨛ</option>
-                        <option value='indo'>Indonesia</option>
-                    </select>
+                    <LanguageSelector />
                 </div>
                 <div
                     onBlur={() => setShowMenu(false)}

@@ -1,14 +1,14 @@
 import BlockContent from '@sanity/block-content-to-react'
 
-const Explaination = ({text}) => {
+const Explaination = ({ text }) => {
     return (
         <div className='text-center bg-white rounded-lg'>
-            <h1 className='text-text-primary text-lg font-semibold p-2'>Explaination</h1>
-            <div className='leading-normal text-gray-300 text-sm lg:text-base text-left bg-text-primary p-4 border-2 border-white rounded-b-lg'>
-                <BlockContent blocks={text} />
+            <h1 className='p-2 text-lg font-semibold text-text-primary'>Explaination</h1>
+            <div className='p-4 text-sm leading-normal text-left text-gray-300 border-2 border-white rounded-b-lg lg:text-base bg-text-primary'>
+                {text}
             </div>
         </div>
     );
 }
- 
+
 export default Explaination;
