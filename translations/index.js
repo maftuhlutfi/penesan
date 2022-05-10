@@ -130,3 +130,9 @@ const contributePage = {
         }
     ]
 }
+
+export default {
+    homePage,
+    aboutPage,
+    contributePage
+}

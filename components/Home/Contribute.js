@@ -1,9 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
+import useTranslations from "../../hooks/useTranslations";
 import Button from "../shared/Button";
 import Section from "../shared/Section";
 
 const Contribute = () => {
+    const text = useTranslations('homePage')
+
     return (
         <Section>
             <div className='lg:flex lg:items-center'>
@@ -19,11 +22,11 @@ const Contribute = () => {
                     </div>
                 </div>
                 <div className='mt-8 lg:relative lg:-left-96 lg:-ml-8 lg:mt-0'>
-                    <h1 className='mb-2 text-2xl font-bold lg:text-5xl lg:leading-tight lg:min-w-full lg:w-max lg:max-w-md'>You Got a Better Idea?</h1>
-                    <p className='mb-6 text-text-secondary lg:text-lg lg:min-w-full lg:w-max lg:max-w-md'>Share your ideas and challenge the others.</p>
+                    <h1 className='mb-2 text-2xl font-bold lg:text-5xl lg:leading-tight lg:min-w-full lg:w-max lg:max-w-md'>{text[4][0]}</h1>
+                    <p className='mb-6 text-text-secondary lg:text-lg lg:min-w-full lg:w-max lg:max-w-md'>{text[4][1]}</p>
                     <Link href='/contribute'>
                         <Button variant='primary'>
-                            Contribute!
+                            {text[4][2]}
                         </Button>
                     </Link>
                 </div>

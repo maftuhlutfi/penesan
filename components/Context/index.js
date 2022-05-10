@@ -22,7 +22,7 @@ const AllContextProvider = ({ children }) => {
 
     useEffect(() => {
         tempDataDispatch(addAllTempData(JSON.parse(window.localStorage.getItem('tempData'))))
-        languageDispatch(changeLanguage(JSON.parse(window.localStorage.getItem('lang'))))
+        languageDispatch(changeLanguage(JSON.parse(window.localStorage.getItem('lang')).lang))
     }, [])
 
     useEffect(() => {
