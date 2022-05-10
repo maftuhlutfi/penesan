@@ -29,7 +29,7 @@ const Footer = () => {
             </div>
             <div className='flex flex-col items-center lg:items-start lg:w-1/4'>
                 <h1 className='text-xl font-bold text-white lg:text-2xl'>Disclaimer</h1>
-                <p className='mt-4 text-sm leading-normal text-gray-400 lg:text-base'>All content is provided for fun and entertainment purposes only.</p>
+                <p className='mt-4 text-sm leading-normal text-gray-400 lg:text-base'>Semua konten di website ini diperoleh dari beberapa sumber dan digunakan untuk pembelajaran/hiburan.</p>
             </div>
         </div>
     );
