@@ -1,18 +1,18 @@
 const menuList = [
     {
-        name: 'Home',
+        name: 'Beranda',
         href: '/'
     },
     {
-        name: 'Explore',
+        name: 'Eksplor',
         href: '/explore'
     },
     {
-        name: 'About',
+        name: 'Tentang Kami',
         href: '/about'
     },
     {
-        name: 'Contribute',
+        name: 'Kontribusi',
         href: '/contribute'
     }
 ]
