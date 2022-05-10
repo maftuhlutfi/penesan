@@ -1,8 +1,11 @@
 import { useRouter } from "next/dist/client/router";
 import { useEffect, useState } from "react";
+import { useContext } from "react";
+import { LanguageContext } from "../Context";
 
-const DropdownBtn = ({icon, label, dropMenu, queryName}) => {
+const DropdownBtn = ({ icon, label, dropMenu, queryName }) => {
     const router = useRouter()
+    const isIndo = useContext(LanguageContext).lang == 'indo'
 
     const [showDrop, setShowDrop] = useState(false)
     const [active, setActive] = useState(0)
@@ -38,19 +41,21 @@ const DropdownBtn = ({icon, label, dropMenu, queryName}) => {
 
     return (
         <button className={`flex relative cursor-pointer hover:bg-cust-purple hover:text-white 
-            items-center py-3 px-4 rounded-xl text-sm md:text-base ${showDrop ? 'bg-cust-purple text-white' : 'bg-white'}`} 
+            items-center py-3 px-4 rounded-xl text-sm md:text-base ${showDrop ? 'bg-cust-purple text-white' : 'bg-white'}`}
             onClick={() => setShowDrop(prev => !prev)}
             onBlur={() => setShowDrop(false)}
         >
             <i className={`${icon} mr-2.5 text-sm md:text-base`} />
-            {dropMenu[active]}
+            {isIndo ? dropMenu[active].split("||")[0] : dropMenu[active].split("||")[1]}
             <div className={`bg-white z-10 absolute top-full right-1/2 transform translate-x-1/2 mt-2 md:right-0 md:transform-none rounded-lg overflow-hidden md:text-left ${showDrop ? 'block' : 'hidden'}`}>
-                {dropMenu.map((item, index) => 
-                    <p key={index} onClick={() => handleClick(index)} className={`py-4 px-6 whitespace-nowrap ${active == index ? 'bg-cust-purple text-white' : 'bg-white hover:bg-gray-200 text-text-primary'}`}>{item}</p>
+                {dropMenu.map((item, index) =>
+                    <p key={index} onClick={() => handleClick(index)} className={`py-4 px-6 whitespace-nowrap ${active == index ? 'bg-cust-purple text-white' : 'bg-white hover:bg-gray-200 text-text-primary'}`}>
+                        {isIndo ? item.split("||")[0] : item.split("||")[1]}
+                    </p>
                 )}
             </div>
         </button>
     );
 }
- 
+
 export default DropdownBtn;

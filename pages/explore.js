@@ -6,8 +6,11 @@ import Container from "../components/shared/Container"
 import CustomHead from "../components/shared/CustomHead"
 import Section from "../components/shared/Section"
 import Spinner from "../components/shared/Spinner";
+import useTranslations from "../hooks/useTranslations";
 
 const ExplorePage = ({ quiz, categories }) => {
+    const text = useTranslations('explorePage')
+
     if (!quiz || !categories) {
         return (
             <Container>
@@ -26,7 +29,7 @@ const ExplorePage = ({ quiz, categories }) => {
             <Container>
                 <Section>
                     <div className='flex flex-col items-center mb-10 md:flex-row md:justify-between md:items-center'>
-                        <h1 className='text-3xl font-semibold'>Explore All Quiz</h1>
+                        <h1 className='text-3xl font-semibold'>{text[0][0]}</h1>
                         <div className='flex mt-6 md:mt-0'>
                             {/* <DropdownBtn 
                                 icon='icon-sort'
@@ -36,7 +39,7 @@ const ExplorePage = ({ quiz, categories }) => {
                             <DropdownBtn
                                 icon='icon-filter'
                                 queryName='category'
-                                dropMenu={['All Categories', ...categories.map(category => category.title)]}
+                                dropMenu={['Semua Kategori || ᨔᨛᨆᨘᨕ ᨀᨈᨛᨁᨚᨑᨗ', ...categories.map(category => category.title)]}
                             />
                         </div>
                     </div>
