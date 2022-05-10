@@ -94,7 +94,7 @@ const aboutPage = {
             bug: 'ᨈᨛᨊᨛᨈᨂᨛ ᨀᨗᨈ'
         },
         {
-            indo: 'Penesan merupakan ide dari tim Me n Dem, untuk diajukan dalam kompetisi Web Aksara Lontaraq. Kami terdiri dari dua orang dari daerah yang berbeda, satu dari dataran tinggi dan satu dari dataran rendah. Ide awal membuat Penesan terjadi karena kita suka bercanda, jadi berniat untuk membantu teman-teman kesepian lainnya untuk mendapatkan wawasan baru dengan permainan yang menyenangkan tentang karakter Lontaraq dan budaya Bugis melalui Penesan.',
+            indo: 'Penesan merupakan ide dari tim Me n Dem, untuk diajukan dalam kompetisi Web Aksara Lontaraq. Kami terdiri dari dua orang dari daerah yang berbeda, satu dari dataran tinggi dan satu dari dataran rendah. Ide awal membuat Penesan terjadi karena kami suka bercanda, jadi berniat untuk membantu teman-teman kesepian lainnya untuk mendapatkan wawasan baru dengan permainan yang menyenangkan tentang karakter Lontaraq dan budaya Bugis melalui Penesan.',
             bug: ' ᨄᨛᨊᨛᨔᨊᨛ ᨆᨛᨊᨛᨍᨉᨗ ᨖᨔᨗᨒᨛ ᨉᨑᨗ ᨈᨗᨆᨛ ᨆᨛ ᨊᨛ ᨉᨛᨆᨛ, ᨕᨘᨊᨛᨈᨘᨀᨛ ᨉᨗᨕᨍᨘᨀᨊᨛ ᨉᨒᨆᨛ ᨀᨚᨇᨛᨈᨗᨔᨗ ᨓᨛᨅᨛ ᨕᨀᨛᨔᨑᨊᨛ ᨒᨚᨊᨛᨈᨑᨀᨛ. ᨀᨆᨗ ᨈᨛᨑᨛᨉᨗᨑᨗ ᨉᨑᨗ ᨉᨘᨕ ᨕᨚᨑᨂᨛ ᨉᨑᨗ ᨉᨕᨛᨑᨖᨛ ᨐᨂᨛ ᨅᨛᨑᨛᨅᨛᨉ, ᨅᨛᨅᨛᨑᨄ ᨉᨗ ᨉᨈᨑᨊᨛ ᨈᨗᬂᬕ ᨉᨊᨛ ᨐᨂᨛ ᨒᨕᨗᨊᨛᨎ ᨉᨈᨑᨊᨛ ᨑᨛᨊᨛᨉᨖᨛ. ᨕᨗᨉᨛ ᨕᨓᨒᨛ ᨆᨛᨆᨛᨅᨘᨕᨈᨛ ᨄᨛᨊᨛᨔᨊᨛ ᨈᨛᨑᨛᨍᨉᨗ ᨀᨑᨛᨊ ᨀᨗᨈ ᨔᨘᨀ ᨅᨛᨑᨛᨌᨊᨛᨉ, ᨍᨉᨗ ᨅᨛᨑᨛᨊᨗᨕᨈᨛ ᨕᨘᨊᨛᨈᨘᨀᨛ ᨆᨛᨆᨛᨅᨊᨛᨈᨘ ᨈᨛᨆᨊᨛ-ᨈᨛᨆᨊᨛ ᨀᨛᨔᨛᨄᨗᨕᨊᨛ ᨒᨕᨗᨊᨛᨎ ᨕᨘᨊᨛᨈᨘᨀᨛ ᨆᨛᨊᨛᨉᨄᨈᨛᨀᨊᨛ ᨓᨓᨔᨊᨛ ᨅᨑᨘ ᨉᨛᨂᨊᨛ ᨄᨛᨑᨛᨆᨕᨗᨊᨊᨛ ᨐᨂᨛ ᨆᨛᨎᨛᨊᨊᨛᨁᨛᨀᨛᨊᨛ ᨈᨛᨊᨛᨈᨂᨛ ᨀᨑᨀᨛᨈᨛᨑᨛ ᨒᨚᨊᨛᨈᨑᨀᨛ ᨆᨛᨒᨒᨘᨕᨗ ᨄᨛᨊᨛᨔᨊᨛ.'
         },
         {
