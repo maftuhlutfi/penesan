@@ -11,7 +11,6 @@ import NavItem from './NavItem'
 const Navigation = ({ dark }) => {
     const pathname = useRouter().pathname
 
-
     const [session, loading] = useSession()
 
     const [showMenu, setShowMenu] = useState(false)
