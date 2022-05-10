@@ -8,10 +8,13 @@ import { useRouter } from 'next/router';
 import LoginModal from '../shared/LoginModal';
 import { TempDataContext } from '../Context';
 import Spinner from '../shared/Spinner';
+import useTranslations from '../../hooks/useTranslations';
 
 const ContributeForm = () => {
     const [session, sessionLoading] = useSession()
     const router = useRouter()
+
+    const text = useTranslations('contributePage')
 
     const { contributionData, addTempData, removeTempData } = useContext(TempDataContext)
 
@@ -117,8 +120,8 @@ const ContributeForm = () => {
                     <Image src='/landing/contribute-img.jpg' layout='fill' className='object-contain' alt='contribute image' />
                 </div>
                 <form id='contribute-form' className='w-full px-8 my-8 lg:my-0' onSubmit={handleSubmit}>
-                    <p className='mb-1 font-semibold tracking-widest text-cust-purple lg:mb-2 lg:text-lg'>CONTRIBUTE</p>
-                    <h1 className='text-2xl font-semibold lg:text-3xl'>Give Us Your Idea</h1>
+                    <p className='mb-1 font-semibold tracking-widest text-cust-purple lg:mb-2 lg:text-lg'>{text[0][0]}</p>
+                    <h1 className='text-2xl font-semibold lg:text-3xl'>{text[0][1]}</h1>
                     <div className='flex flex-col gap-4 my-6 lg:my-8 lg:gap-6'>
                         <input type='text' className='w-full px-4 py-2 border rounded-lg outline-none bg-more-light-purple bg-opacity-60 focus:border-cust-purple' name='title' value={title} onChange={handleChange} placeholder='Title' autoComplete='off' required />
                         <select type='text' className='w-full px-4 py-2 border rounded-lg outline-none bg-more-light-purple bg-opacity-60 focus:border-cust-purple' name='category' value={category} onChange={handleChange} required>

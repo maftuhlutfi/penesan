@@ -3,8 +3,11 @@ import Container from "../components/shared/Container"
 import ContributeForm from "../components/Contribute/ContributeForm"
 import Section from "../components/shared/Section";
 import ContributeList from "../components/Contribute/ContributeList";
+import useTranslations from "../hooks/useTranslations";
 
 const ContributionPage = () => {
+    const text = useTranslations('contributePage')
+
     return (
         <>
             <CustomHead
@@ -17,8 +20,8 @@ const ContributionPage = () => {
                     <ContributeForm />
                 </Section>
                 <Section style='max-w-screen-xl'>
-                    <p className='text-cust-purple tracking-widest font-semibold mb-2 text-center lg:text-lg'>OTHERS IDEAS</p>
-                    <h1 className='text-2xl font-semibold lg:text-3xl text-center'>Creative Ideas from Users</h1>
+                    <p className='mb-2 font-semibold tracking-widest text-center text-cust-purple lg:text-lg'>{text[1][0]}</p>
+                    <h1 className='text-2xl font-semibold text-center lg:text-3xl'>{text[1][1]}</h1>
                     <ContributeList />
                 </Section>
             </Container>
