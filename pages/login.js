@@ -62,18 +62,18 @@ const LoginPage = () => {
             />
             <Container>
                 <Wrapper>
-                    <h1 className='text-xl font-bold text-center mb-6'>Login to DeBut</h1>
-                    <div className='my-6 flex flex-col gap-4'>
+                    <h1 className='mb-6 text-xl font-bold text-center'>Login to DeBut</h1>
+                    <div className='flex flex-col gap-4 my-6'>
                         <LoginWithSocialBtn label='Continue with Google' icon='google' provider='google' callbackUrl={`${origin}/explore`} />
                         <LoginWithSocialBtn label='Continue with Facebook' icon='facebook' provider='facebook' callbackUrl={`${origin}/explore`} />
                         <LoginWithSocialBtn label='Continue with Twitter' icon='twitter' provider='twitter' callbackUrl={`${origin}/explore`} />
                     </div>
-                    <p className='text-sm text-gray-400 text-center'>— or —</p>
-                    <form className='my-6 flex flex-col gap-4' action={`${origin}/api/auth/callback/sanity-login`} method="POST" onSubmit={() => setLoading(true)}>
+                    <p className='text-sm text-center text-gray-400'>— or —</p>
+                    <form className='flex flex-col gap-4 my-6' action={`${origin}/api/auth/callback/sanity-login`} method="POST" onSubmit={() => setLoading(true)}>
                         <input type="hidden" name="csrfToken" value={csrfToken} />
                         <TextInput id='email' type='email' name='email' label='Email' placeholder='mail@example.com' value={email} onChange={handleChange} required />
                         <TextInput id='password' type='password' name='password' label='Password' value={password} onChange={handleChange} required />
-                        <button type='submit' className='w-full mt-2 bg-cust-purple text-white font-medium py-2 rounded'>
+                        <button type='submit' className='w-full py-2 mt-2 font-medium text-white rounded bg-cust-purple'>
                             {loading ?
                                 <Spinner width='24px' />
                                 :
@@ -81,9 +81,9 @@ const LoginPage = () => {
                             }
                         </button>
                     </form>
-                    <div className='text-center text-sm text-text-secondary'>
+                    <div className='text-sm text-center text-text-secondary'>
                         Don't have an account?
-                        <Link href='/signup'><a className='font-medium text-cust-purple hover:underline ml-1'>Sign up</a></Link>
+                        <Link href='/signup'><a className='ml-1 font-medium text-cust-purple hover:underline'>Sign up</a></Link>
                     </div>
                 </Wrapper>
             </Container>

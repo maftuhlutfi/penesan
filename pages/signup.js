@@ -21,6 +21,9 @@ const SignUpPage = () => {
         confirmPassword: ''
     }
 
+
+    const [origin, setOrigin] = useState('')
+
     const [input, setInput] = useState(initInput)
     const { nameInput, email, password, confirmPassword } = input
     const [isConfirmPasswordSame, setIsConfirmPasswordSame] = useState(false)
@@ -75,6 +78,10 @@ const SignUpPage = () => {
         }
     }
 
+    useEffect(() => {
+        setOrigin(window.location.origin)
+    }, [])
+
     return (
         <>
             <CustomHead
@@ -84,15 +91,15 @@ const SignUpPage = () => {
             />
             <Container>
                 <Wrapper>
-                    <h1 className='text-xl font-bold text-center mb-2'>Welcome to DeBut</h1>
-                    <p className='text-text-secondary text-sm text-center mb-6'>Explore all fun information through the quiz and share your result.</p>
-                    <div className='my-6 flex flex-col gap-4'>
-                        <LoginWithSocialBtn label='Continue with Google' icon='google' provider='google' callbackUrl='http://localhost:3000/explore' />
-                        <LoginWithSocialBtn label='Continue with Facebook' icon='facebook' provider='facebook' callbackUrl='http://localhost:3000/explore' />
-                        <LoginWithSocialBtn label='Continue with Twitter' icon='twitter' provider='twitter' callbackUrl='http://localhost:3000/explore' />
+                    <h1 className='mb-2 text-xl font-bold text-center'>Welcome to DeBut</h1>
+                    <p className='mb-6 text-sm text-center text-text-secondary'>Explore all fun information through the quiz and share your result.</p>
+                    <div className='flex flex-col gap-4 my-6'>
+                        <LoginWithSocialBtn label='Continue with Google' icon='google' provider='google' callbackUrl={`${origin}/explore`} />
+                        <LoginWithSocialBtn label='Continue with Facebook' icon='facebook' provider='facebook' callbackUrl={`${origin}/explore`} />
+                        <LoginWithSocialBtn label='Continue with Twitter' icon='twitter' provider='twitter' callbackUrl={`${origin}/explore`} />
                     </div>
-                    <p className='text-sm text-gray-400 text-center'>— or —</p>
-                    <form className='my-6 flex flex-col gap-4' onSubmit={handleSubmit}>
+                    <p className='text-sm text-center text-gray-400'>— or —</p>
+                    <form className='flex flex-col gap-4 my-6' onSubmit={handleSubmit}>
                         <TextInput id='name' type='text' name='nameInput' label='Name' value={nameInput} onChange={handleChange} required />
                         <TextInput id='email' type='email' name='email' label='Email' placeholder='mail@example.com' value={email} onChange={handleChange} required />
                         <TextInput id='password' type='password' name='password' label='Password' value={password} onChange={handleChange} required
@@ -109,9 +116,9 @@ const SignUpPage = () => {
                             }
                         </button>
                     </form>
-                    <div className='text-center text-sm text-text-secondary'>
+                    <div className='text-sm text-center text-text-secondary'>
                         Already have an account?
-                        <Link href='/login'><a className='font-medium text-cust-purple hover:underline ml-1'>Login</a></Link>
+                        <Link href='/login'><a className='ml-1 font-medium text-cust-purple hover:underline'>Login</a></Link>
                     </div>
                 </Wrapper>
                 {message && <Message {...message} />}
