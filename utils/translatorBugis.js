@@ -686,7 +686,7 @@ export function DoTransliterate(str) {
 	var ret = "";
 	var pi = 0;
 	var vowelFlag = false;
-	startVowel = false;
+	//startVowel = false;
 	str = SuperTrim(str);
 	while (i < str.length) {
 

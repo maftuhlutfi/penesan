@@ -311,6 +311,31 @@ const footer = {
 
 }
 
+const resultPage = {
+    section1: [
+        {
+            indo: 'Kamu Telah Menyelesaikan Kuis',
+            bug: 'ᨀᨆᨘ ᨈᨛᨒᨖᨛ ᨆᨛᨎᨛᨒᨛᨔᨕᨗᨀᨊᨛ ᨀᨘᨕᨗᨔᨛ'
+        },
+        {
+            indo: 'Skor kamu adalah',
+            bug: 'ᨔᨛᨀᨚᨑᨛ ᨀᨆᨘ ᨕᨉᨒᨖᨛ'
+        },
+        {
+            indo: 'dan ini adalah hasilnya:',
+            bug: 'ᨉᨊᨛ ᨕᨗᨊᨗ ᨕᨉᨒᨖᨛ ᨖᨔᨗᨒᨛᨎ:'
+        },
+        {
+            indo: 'Main Lagi',
+            bug: 'ᨆᨕᨗᨊᨛ ᨒᨁᨗ'
+        },
+        {
+            indo: 'Bagikan',
+            bug: 'ᨅᨁᨗᨀᨊᨛ'
+        },
+    ]
+}
+
 export default {
     homePage,
     aboutPage,
@@ -319,5 +344,6 @@ export default {
     signupPage,
     explorePage,
     navigasi,
-    footer
+    footer,
+    resultPage
 }
