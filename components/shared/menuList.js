@@ -1,18 +1,18 @@
 const menuList = [
     {
-        name: 'Beranda',
+        name: 'Beranda || ᨅᨛᨑᨊᨛᨉ',
         href: '/'
     },
     {
-        name: 'Eksplor',
+        name: 'Eksplor || ᨕᨛᨀᨛᨔᨛᨄᨛᨒᨚᨑᨛ',
         href: '/explore'
     },
     {
-        name: 'Tentang Kami',
+        name: 'Tentang Kami || ᨈᨛᨊᨛᨈᨂᨛ ᨀᨆᨗ',
         href: '/about'
     },
     {
-        name: 'Kontribusi',
+        name: 'Kontribusi || ᨀᨚᨊᨛᨈᨛᨑᨗᨅᨘᨔᨗ',
         href: '/contribute'
     }
 ]
