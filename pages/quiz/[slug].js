@@ -11,8 +11,12 @@ import ShareModal from "../../components/shared/ShareModal";
 import { useState } from "react";
 import { useRouter } from "next/router";
 import Spinner from "../../components/shared/Spinner";
+import { useContext } from "react";
+import { LanguageContext } from "../../components/Context";
+
 
 const QuizSinglePage = ({ quiz }) => {
+    const isIndo = useContext(LanguageContext).lang == 'indo'
     const router = useRouter()
     const [showShareModal, setShowShareModal] = useState(false)
 
@@ -39,16 +43,20 @@ const QuizSinglePage = ({ quiz }) => {
                             <Image src={urlFor(quiz.mainImage).url()} alt={quiz.title + ' Image'} layout='fill' className='object-cover object-center' />
                         </div>
                         <div className='max-w-lg'>
-                            <h1 className='mb-4 text-2xl font-bold leading-normal lg:text-4xl'>{quiz.title}</h1>
-                            <BlockContent blocks={quiz.description} className='leading-normal text-text-secondary' renderContainerOnSingleChild={true} />
+                            <h1 className='mb-4 text-2xl font-bold leading-normal lg:text-4xl'>
+                                {isIndo ? quiz.title.split(" || ")[0] : quiz.title.split(" || ")[1]}
+                            </h1>
+                            <p className='leading-normal text-text-secondary'>
+                                {isIndo ? quiz.description.map(t => t.children.map(c => c.text).join(". ")).join("\n").split(" || ")[0] : quiz.description.map(t => t.children.map(c => c.text).join(". ")).join("\n").split(" || ")[1]}
+                            </p>
                             <div className='fixed bottom-0 left-0 z-10 flex items-center justify-center w-full gap-4 pt-4 pb-8 mt-6 bg-white md:static md:bg-transparent md:justify-start md:p-0'>
                                 <Button variant='primary' onClick={() => router.push(`/quiz/${quiz.slug.current}/do`)}>
                                     <i className='mr-3 icon-play' />
-                                    Play Quiz
+                                    {isIndo ? 'Bermain' : ' ᨅᨛᨑᨛᨆᨕᨗᨊᨛ'}
                                 </Button>
                                 <Button variant='secondary' onClick={() => setShowShareModal(true)}>
                                     <i className='mr-3 icon-share' />
-                                    Share
+                                    {isIndo ? 'Bagikan' : 'ᨅᨁᨗᨀᨊᨛ'}
                                 </Button>
                             </div>
                         </div>
@@ -57,7 +65,7 @@ const QuizSinglePage = ({ quiz }) => {
                 <Section>
                     <button className='px-6 py-3 text-lg font-semibold bg-white shadow-sm rounded-xl' onClick={() => router.back()}>
                         <i className='mr-3 text-base icon-arrow-left text-light-purple' />
-                        Back
+                        {isIndo ? 'Kembali' : 'ᨀᨛᨆᨛᨅᨒᨗ'}
                     </button>
                 </Section>
             </Container>
