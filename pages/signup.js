@@ -12,6 +12,8 @@ import { signUp } from "next-auth-sanity/dist/client";
 import router from "next/router";
 import Message from "../components/shared/Message";
 import Spinner from "../components/shared/Spinner";
+import useTranslations from "../hooks/useTranslations";
+import LanguageSelector from "../components/shared/LanguageSelector";
 
 const SignUpPage = () => {
     const initInput = {
@@ -21,6 +23,7 @@ const SignUpPage = () => {
         confirmPassword: ''
     }
 
+    const text = useTranslations('signupPage')
 
     const [origin, setOrigin] = useState('')
 
@@ -90,35 +93,36 @@ const SignUpPage = () => {
                 url='https://www.xn--slfd.id/login'
             />
             <Container>
+                <LanguageSelector className='absolute top-2 lg:top-8 lg:left-4' dark={true} />
                 <Wrapper>
-                    <h1 className='mb-2 text-xl font-bold text-center'>Welcome to DeBut</h1>
-                    <p className='mb-6 text-sm text-center text-text-secondary'>Explore all fun information through the quiz and share your result.</p>
+                    <h1 className='mb-2 text-xl font-bold text-center'>{text[0][0]}</h1>
+                    <p className='mb-6 text-sm text-center text-text-secondary'>{text[0][1]}</p>
                     <div className='flex flex-col gap-4 my-6'>
-                        <LoginWithSocialBtn label='Continue with Google' icon='google' provider='google' callbackUrl={`${origin}/explore`} />
-                        <LoginWithSocialBtn label='Continue with Facebook' icon='facebook' provider='facebook' callbackUrl={`${origin}/explore`} />
+                        <LoginWithSocialBtn label={text[0][2]} icon='google' provider='google' callbackUrl={`${origin}/explore`} />
+                        <LoginWithSocialBtn label={text[0][3]} icon='facebook' provider='facebook' callbackUrl={`${origin}/explore`} />
                         {/* <LoginWithSocialBtn label='Continue with Twitter' icon='twitter' provider='twitter' callbackUrl={`${origin}/explore`} /> */}
                     </div>
-                    <p className='text-sm text-center text-gray-400'>— or —</p>
+                    <p className='text-sm text-center text-gray-400'>{text[0][5]}</p>
                     <form className='flex flex-col gap-4 my-6' onSubmit={handleSubmit}>
-                        <TextInput id='name' type='text' name='nameInput' label='Name' value={nameInput} onChange={handleChange} required />
-                        <TextInput id='email' type='email' name='email' label='Email' placeholder='mail@example.com' value={email} onChange={handleChange} required />
-                        <TextInput id='password' type='password' name='password' label='Password' value={password} onChange={handleChange} required
+                        <TextInput id='name' type='text' name='nameInput' label={text[0][6]} value={nameInput} onChange={handleChange} required />
+                        <TextInput id='email' type='email' name='email' label={text[0][7]} placeholder='mail@example.com' value={email} onChange={handleChange} required />
+                        <TextInput id='password' type='password' name='password' label={text[0][8]} value={password} onChange={handleChange} required
                             style={`${isConfirmPasswordSame ? 'border-green-400' : 'border-red-400'} ${!(password && confirmPassword) && 'border-gray-200 focus:border-cust-purple'}`}
                         />
-                        <TextInput id='confirm-password' type='password' name='confirmPassword' label='Confirm Password' value={confirmPassword} onChange={handleChange} required
+                        <TextInput id='confirm-password' type='password' name='confirmPassword' label={text[0][9]} value={confirmPassword} onChange={handleChange} required
                             style={`${isConfirmPasswordSame ? 'border-green-400' : 'border-red-400'} ${!(password && confirmPassword) && 'border-gray-200 focus:border-cust-purple'}`}
                         />
                         <button type='submit' className={`w-full mt-2 bg-cust-purple text-white font-medium py-2 rounded flex items-center justify-center ${loading && 'cursor-not-allowed bg-opacity-90'}`}>
                             {loading ?
                                 <Spinner width='24px' />
                                 :
-                                'Sign Up'
+                                text[0][10]
                             }
                         </button>
                     </form>
                     <div className='text-sm text-center text-text-secondary'>
-                        Already have an account?
-                        <Link href='/login'><a className='ml-1 font-medium text-cust-purple hover:underline'>Login</a></Link>
+                        {text[0][11]}
+                        <Link href='/login'><a className='ml-1 font-medium text-cust-purple hover:underline'>{text[0][12]}</a></Link>
                     </div>
                 </Wrapper>
                 {message && <Message {...message} />}

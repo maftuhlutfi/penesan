@@ -166,8 +166,12 @@ const loginPage = {
             bug: ' ᨆᨔᨘᨀᨛ'
         },
         {
-            indo: 'Tidak punya akun? Daftar',
-            bug: ' ᨈᨗᨉᨀᨛ ᨄᨘᨎ ᨕᨀᨘᨊᨛ? ᨉᨄᨛᨈᨑᨛ'
+            indo: 'Tidak punya akun?',
+            bug: ' ᨈᨗᨉᨀᨛ ᨄᨘᨎ ᨕᨀᨘᨊᨛ?'
+        },
+        {
+            indo: 'Daftar',
+            bug: 'ᨉᨄᨛᨈᨑᨛ'
         }
     ]
 
@@ -220,8 +224,12 @@ const signupPage = {
             bug: ' ᨉᨄᨛᨈᨑᨛ'
         },
         {
-            indo: 'Sudah punya akun? Masuk',
-            bug: ' ᨔᨘᨉᨖᨛ ᨄᨘᨎ ᨕᨀᨘᨊᨛ? ᨆᨔᨘᨀᨛ'
+            indo: 'Sudah punya akun?',
+            bug: ' ᨔᨘᨉᨖᨛ ᨄᨘᨎ ᨕᨀᨘᨊᨛ?'
+        },
+        {
+            indo: 'Masuk',
+            bug: ' ᨆᨔᨘᨀᨛ'
         }
     ]
 
