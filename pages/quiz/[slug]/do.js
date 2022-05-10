@@ -137,8 +137,6 @@ const DoTheQuizPage = ({ quiz }) => {
         )
     }
 
-    console.log(question.explaination.map(t => t.children.map(c => c.text).join(". ")).join("\n").split(" || "))
-
     return (
         <>
             <CustomHead
