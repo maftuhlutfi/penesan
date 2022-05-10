@@ -131,8 +131,193 @@ const contributePage = {
     ]
 }
 
+const loginPage = {
+    section1: [
+        {
+            indo: 'Masuk ke Penesan',
+            bug: ' ᨆᨔᨘᨀᨛ ᨀᨛ ᨄᨛᨊᨛᨔᨊᨛ'
+        },
+        {
+            indo: 'Masuk dengan Google',
+            bug: ' ᨆᨔᨘᨀᨛ ᨉᨛᨂᨊᨛ ᨁᨚᨕᨚᨁᨛᨒᨛ'
+        },
+        {
+            indo: 'Masuk dengan Facebook',
+            bug: ' ᨆᨔᨘᨀᨛ ᨉᨛᨂᨊᨛ ᨄᨌᨛᨅᨚᨕᨚᨀᨛ'
+        },
+        {
+            indo: 'Masuk dengan Twitter',
+            bug: ' ᨆᨔᨘᨀᨛ ᨉᨛᨂᨊᨛ ᨈᨛᨓᨗᨈᨛᨈᨛᨑᨛ'
+        },
+        {
+            indo: '— atau —',
+            bug: '— ᨕᨈᨕᨘ —'
+        },
+        {
+            indo: 'E-mail',
+            bug: ' ᨕᨛ-ᨆᨕᨗᨒᨛ'
+        },
+        {
+            indo: 'Sandi',
+            bug: ' ᨔᨊᨛᨉᨗ'
+        },
+        {
+            indo: 'Masuk',
+            bug: ' ᨆᨔᨘᨀᨛ'
+        },
+        {
+            indo: 'Tidak punya akun? Daftar',
+            bug: ' ᨈᨗᨉᨀᨛ ᨄᨘᨎ ᨕᨀᨘᨊᨛ? ᨉᨄᨛᨈᨑᨛ'
+        }
+    ]
+
+}
+
+const signupPage = {
+    section1: [
+        {
+            indo: 'Selamat Datang di Penesan',
+            bug: ' ᨔᨛᨒᨆᨈᨛ ᨉᨈᨂᨛ ᨉᨗ ᨄᨛᨊᨛᨔᨊᨛ'
+        },
+        {
+            indo: 'Jelajahi semua informasi menyenangkan melalui kuis dan bagikan hasilmu.',
+            bug: ' ᨍᨛᨒᨍᨖᨗ ᨔᨛᨆᨘᨕ ᨕᨗᨊᨛᨄᨚᨑᨛᨆᨔᨗ ᨆᨛᨎᨛᨊᨊᨛᨁᨛᨀᨛᨊᨛ ᨆᨛᨒᨒᨘᨕᨗ ᨀᨘᨕᨗᨔᨛ ᨉᨊᨛ ᨅᨁᨗᨀᨊᨛ ᨖᨔᨗᨒᨛᨆᨘ.'
+        },
+        {
+            indo: 'Masuk dengan Google',
+            bug: ' ᨆᨔᨘᨀᨛ ᨉᨛᨂᨊᨛ ᨁᨚᨕᨚᨁᨛᨒᨛ'
+        },
+        {
+            indo: 'Masuk dengan Facebook',
+            bug: ' ᨆᨔᨘᨀᨛ ᨉᨛᨂᨊᨛ ᨄᨌᨛᨅᨚᨕᨚᨀᨛ'
+        },
+        {
+            indo: 'Masuk dengan Twitter',
+            bug: ' ᨆᨔᨘᨀᨛ ᨉᨛᨂᨊᨛ ᨈᨛᨓᨗᨈᨛᨈᨛᨑᨛ'
+        },
+        {
+            indo: '— atau —',
+            bug: '— ᨕᨈᨕᨘ —'
+        },
+        {
+            indo: 'Nama',
+            bug: ' ᨊᨆ'
+        },
+        {
+            indo: 'E-mail',
+            bug: ' ᨕᨛ-ᨆᨕᨗᨒᨛ'
+        },
+        {
+            indo: 'Sandi',
+            bug: ' ᨔᨊᨛᨉᨗ'
+        },
+        {
+            indo: 'Konfirmasi Sandi',
+            bug: ' ᨀᨚᨊᨛᨄᨗᨑᨛᨆᨔᨗ ᨔᨊᨛᨉᨗ'
+        },
+        {
+            indo: 'Daftar',
+            bug: ' ᨉᨄᨛᨈᨑᨛ'
+        },
+        {
+            indo: 'Sudah punya akun? Masuk',
+            bug: ' ᨔᨘᨉᨖᨛ ᨄᨘᨎ ᨕᨀᨘᨊᨛ? ᨆᨔᨘᨀᨛ'
+        }
+    ]
+
+}
+
+const explorePage = {
+    section1: [
+        {
+            indo: 'Jelajahi Semua Kuis',
+            bug: ' ᨍᨛᨒᨍᨖᨗ ᨔᨛᨆᨘᨕ ᨀᨘᨕᨗᨔᨛ'
+        },
+        {
+            indo: 'Semua Kategori',
+            bug: ' ᨔᨛᨆᨘᨕ ᨀᨈᨛᨁᨚᨑᨗ'
+        }
+    ]
+}
+const navigasi = {
+    section1: [
+        {
+            indo: 'Beranda',
+            bug: ' ᨅᨛᨑᨊᨛᨉ'
+        },
+        {
+            indo: 'Eksplor',
+            bug: ' ᨕᨛᨀᨛᨔᨛᨄᨛᨒᨚᨑᨛ'
+        },
+        {
+            indo: 'Tentang Kami',
+            bug: ' ᨈᨛᨊᨛᨈᨂᨛ ᨀᨆᨗ'
+        },
+        {
+            indo: 'Kontribusi',
+            bug: ' ᨀᨚᨊᨛᨈᨛᨑᨗᨅᨘᨔᨗ'
+        },
+        {
+            indo: 'Masuk',
+            bug: ' ᨆᨔᨘᨀᨛ'
+        }
+    ]
+
+}
+
+const footer = {
+    section1: [
+        {
+            indo: 'Jl. Colombo Yogyakarta No.1, Karang Malang, Caturtunggal, Kec. Depok, Kabupaten Sleman, Daerah Istimewa Yogyakarta 55281',
+            bug: ' ᨍᨒᨊᨛ ᨌᨚᨒᨚᨆᨛᨅᨚ ᨐᨚᨁᨛᨐᨀᨑᨛᨈ ᨊᨚ.1, ᨀᨑᨂᨛ ᨆᨒᨂᨛ, ᨌᨈᨘᨑᨛᨈᨘᬂᬕᨒᨛ, ᨀᨛᨌᨛ. ᨉᨛᨄᨚᨀᨛ, ᨀᨅᨘᨄᨈᨛᨊᨛ ᨔᨛᨒᨛᨆᨊᨛ, ᨉᨕᨛᨑᨖᨛ ᨕᨗᨔᨛᨈᨗᨆᨛᨓ ᨐᨚᨁᨛᨐᨀᨑᨛᨈ 55281'
+        }
+    ],
+    section2: [
+        {
+            indo: 'Menu',
+            bug: ' ᨆᨛᨊᨘ'
+        },
+        {
+            indo: 'Beranda',
+            bug: ' ᨅᨛᨑᨊᨛᨉ'
+        },
+        {
+            indo: 'Eksplor',
+            bug: ' ᨕᨛᨀᨛᨔᨛᨄᨛᨒᨚᨑᨛ'
+        },
+        {
+            indo: 'Tentang Kami',
+            bug: ' ᨈᨛᨊᨛᨈᨂᨛ ᨀᨆᨗ'
+        },
+        {
+            indo: 'Kontribusi',
+            bug: ' ᨀᨚᨊᨛᨈᨛᨑᨗᨅᨘᨔᨗ'
+        },
+        {
+            indo: 'Masuk',
+            bug: ' ᨆᨔᨘᨀᨛ'
+        }
+    ],
+    section3: [
+        {
+            indo: 'Disclaimer',
+            bug: ' ᨉᨗᨔᨛᨌᨛᨒᨕᨗᨆᨛᨑᨛ'
+        },
+        {
+            indo: 'Semua konten di website ini diperoleh dari beberapa sumber dan digunakan untuk pembelajaran/hiburan.',
+            bug: ' ᨔᨛᨆᨘᨕ ᨀᨚᨊᨛᨈᨛᨊᨛ ᨉᨗ ᨓᨛᨅᨛᨔᨗᨈᨛ ᨕᨗᨊᨗ ᨉᨗᨄᨛᨑᨚᨒᨛᨖᨛ ᨉᨑᨗ ᨅᨛᨅᨛᨑᨄ ᨔᨘᨆᨛᨅᨛᨑᨛ ᨉᨊᨛ ᨉᨗᨁᨘᨊᨀᨊᨛ ᨕᨘᨊᨛᨈᨘᨀᨛ ᨄᨛᨆᨛᨅᨛᨒᨍᨑᨊᨛ/ᨖᨗᨅᨘᨑᨊᨛ.'
+        }
+    ]
+
+}
+
 export default {
     homePage,
     aboutPage,
-    contributePage
+    contributePage,
+    loginPage,
+    signupPage,
+    explorePage,
+    navigasi,
+    footer
 }
