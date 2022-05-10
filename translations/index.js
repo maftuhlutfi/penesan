@@ -1,7 +1,7 @@
 const homePage = {
     section1: [
         {
-            indo: 'Anda merasa tahu tentang Bugis?',
+            indo: 'Kamu merasa tahu tentang Bugis?',
             bug: ' ᨕᨊᨛᨉ ᨆᨛᨑᨔ ᨈᨖᨘ ᨈᨛᨊᨛᨈᨂᨛ ᨅᨘᨁᨗᨔᨛ?'
         },
         {
@@ -9,7 +9,7 @@ const homePage = {
             bug: ' ᨐᨘᨀᨛ ᨅᨘᨀᨛᨈᨗᨀᨊᨛ, ᨉᨕᨛᨂᨛ!'
         },
         {
-            indo: 'Tantang diri Anda. Kenali budaya lokal Bugis melalui kuis dan lihat hasilnya!',
+            indo: 'Tantang dirimu. Kenali budaya lokal Bugis melalui kuis dan lihat hasilnya!',
             bug: ' ᨈᨊᨛᨈᨂᨛ ᨉᨗᨑᨗ ᨕᨊᨛᨉ. ᨀᨛᨊᨒᨗ ᨅᨘᨉᨐ ᨒᨚᨀᨒᨛ ᨅᨘᨁᨗᨔᨛ ᨆᨛᨒᨒᨘᨕᨗ ᨀᨘᨕᨗᨔᨛ ᨉᨊᨛ ᨒᨗᨖᨈᨛ ᨖᨔᨗᨒᨛᨎ!'
         },
         {
