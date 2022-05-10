@@ -32,7 +32,7 @@ const ResultPage = ({ result, score, user, quiz }) => {
     const formattedResult = () => {
         if (result) {
             if (user.name) {
-                return result.title.replace(/{name}/g, isIndo ? user.name : DoTransliterate(user.name))
+                return result.title.replace(/{name}/g, user.name)
             } else {
                 return result.title.replace(/{name}/g, isIndo ? 'Kamu' : DoTransliterate("Kamu"))
             }
