@@ -33,7 +33,7 @@ const Navigation = ({ dark }) => {
                     </div>
                     <select className='p-2 ml-4 bg-red-100 rounded-lg lg:ml-8 focus:outline-none focus:ring-2 focus:ring-cust-red' value={lang} onChange={e => changeLanguage(e.target.value)}>
                         <option value='bug'>ᨅᨘᨁᨗᨔᨛ</option>
-                        <option value='en'>English</option>
+                        <option value='indo'>Indonesia</option>
                     </select>
                 </div>
                 <div

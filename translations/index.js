@@ -1,87 +1,87 @@
 const homePage = {
     section1: [
         {
-            en: 'Do you know Makassar?',
-            bug: 'ᨕᨄᨀᨖᨛ ᨀᨆᨘ ᨆᨛᨂᨛᨊᨒᨛ ᨆᨀᨔᨛᨔᨑᨛ?'
+            indo: 'Anda merasa tahu tentang Bugis?',
+            bug: 'ᨕᨄᨀᨖᨛ ᨕᨊᨛᨉ ᨈᨖᨘ ᨅᨘᨁᨗᨔᨛ?'
         },
         {
-            en: 'Prove it, Daeng',
+            indo: 'Yuk Buktikan, Daeng!',
             bug: 'ᨅᨘᨀᨛᨈᨗᨀᨊᨛ ᨖᨒᨛ ᨕᨗᨈᨘ, ᨉᨕᨛᨂᨛ'
         },
         {
-            en: 'Challenge yourself. Get to know the local culture of Makassar, and see the appreciation you will receive (of course it\'s just a joke)',
-            bug: 'ᨈᨊᨛᨈᨂᨛ ᨉᨗᨑᨗ ᨕᨊᨛᨉ. ᨀᨛᨊᨒᨗ ᨅᨘᨉᨐ ᨒᨚᨀᨒᨛ ᨆᨀᨔᨛᨔᨑᨛ, ᨉᨊᨛ ᨒᨗᨖᨈᨛ ᨕᨄᨛᨑᨛᨔᨗᨕᨔᨗ ᨐᨂᨛ ᨕᨀᨊᨛ ᨕᨊᨛᨉ ᨈᨛᨑᨗᨆ (ᨈᨛᨊᨛᨈᨘ ᨔᨍ ᨕᨗᨈᨘ ᨖᨎ ᨒᨛᨒᨘᨌᨚᨊᨛ)'
+            indo: 'Tantang diri Anda. Kenali budaya lokal Bugis melalui kuis dan lihat hasilnya!',
+            bug: 'ᨈᨊᨛᨈᨂᨛ ᨉᨗᨑᨗ ᨕᨊᨛᨉ. ᨀᨛᨊᨒᨗ ᨅᨘᨉᨐ ᨒᨚᨀᨒᨛ ᨅᨘᨁᨗᨔᨛ, ᨉᨊᨛ ᨒᨗᨖᨈᨛ ᨕᨄᨛᨑᨛᨔᨗᨕᨔᨗ ᨐᨂᨛ ᨕᨀᨊᨛ ᨕᨊᨛᨉ ᨈᨛᨑᨗᨆ (ᨈᨛᨊᨛᨈᨘ ᨔᨍ ᨕᨗᨈᨘ ᨖᨎ ᨒᨛᨒᨘᨌᨚᨊᨛ)'
         },
         {
-            en: 'Get Started',
+            indo: 'Coba Sekarang!',
             bug: 'ᨆᨛᨆᨘᨒᨕᨗ'
         }
     ],
     section2: [
         {
-            en: 'TOP QUIZ',
+            indo: 'KUIS TERBARU',
             bug: 'ᨀᨕᨘᨕᨕᨗᨔᨛ ᨈᨕᨛᨑᨕᨈᨕᨔᨛ'
         },
         {
-            en: 'Choose Your Fun',
+            indo: 'Yuk Pilih Kuis dan Kerjakan',
             bug: 'ᨄᨗᨒᨗᨖᨛ ᨀᨛᨔᨛᨊᨂᨊᨛ ᨕᨊᨛᨉ'
         },
         {
-            en: 'See More',
+            indo: 'Lihat Semua',
             bug: 'ᨒᨗᨖᨈᨛ ᨔᨛᨒᨛᨊᨛᨁᨛᨀᨛᨄᨛᨎ'
         }
     ],
     section3: [
         {
-            en: 'HOW TO',
+            indo: 'CARA BERMAIN',
             bug: 'ᨅᨕᨁᨕᨕᨕᨗᨆᨕᨊᨕ ᨌᨕᨑᨕᨎᨕ'
         },
         {
-            en: 'Play Your Fun',
+            indo: 'Rasakan Keseruannya',
             bug: 'ᨆᨕᨗᨃᨊᨛ ᨀᨛᨔᨛᨊᨂᨊᨛ ᨕᨊᨛᨉ'
         },
         {
-            en: 'Select the desired quiz category',
+            indo: 'Pilih kuis yang diinginkan',
             bug: 'ᨄᨗᨒᨗᨖᨛ ᨀᨈᨛᨁᨚᨑᨗ ᨀᨘᨕᨗᨔᨛ ᨐᨂᨛ ᨉᨗᨕᨗᨂᨗᨃᨊᨛ'
         },
         {
-            en: 'Work on the problem with each others intelligence.',
-            bug: ' ᨅᨛᨀᨛᨑᨛᨍ ᨄᨉ ᨆᨔᨒᨖᨛ ᨉᨛᨂᨊᨛ ᨀᨛᨌᨛᨑᨛᨉᨔᨊᨛ ᨆᨔᨗᨂᨛ-ᨆᨔᨗᨂᨛ.'
+            indo: 'Kerjakan sesuai kemampuanmu!',
+            bug: ' ᨅᨛᨀᨛᨑᨛᨍ ᨄᨉ ᨆᨔᨒᨖᨛ ᨉᨛᨂᨊᨛ ᨀᨛᨌᨛᨑᨛᨉᨔᨊᨛ ᨆᨔᨗᨂᨛ-ᨆᨔᨗᨂᨛ'
         },
         {
-            en: 'Get interesting jokes, based on answers. Dont forget to share with your friends.',
-            bug: 'ᨉᨄᨈᨛᨀᨊᨛ ᨒᨛᨒᨘᨌᨚᨊᨛ ᨐᨂᨛ ᨆᨛᨊᨑᨗᨀᨛ, ᨅᨛᨑᨛᨉᨔᨑᨛᨀᨊᨛ ᨍᨓᨅᨊᨛ. ᨍᨂᨊᨛ ᨒᨘᨄ ᨕᨘᨊᨛᨈᨘᨀᨛ ᨅᨛᨑᨛᨅᨁᨗ ᨉᨛᨂᨊᨛ ᨈᨛᨆᨊᨛ-ᨈᨛᨆᨊᨛ ᨕᨊᨛᨉ.'
+            indo: 'Dapatkan lelucon yang menarik, berdasarkan hasil kuis. Jangan lupa untuk membagikan hasilnya ke teman-temanmu',
+            bug: 'ᨉᨄᨈᨛᨀᨊᨛ ᨒᨛᨒᨘᨌᨚᨊᨛ ᨐᨂᨛ ᨆᨛᨊᨑᨗᨀᨛ, ᨅᨛᨑᨛᨉᨔᨑᨛᨀᨊᨛ ᨍᨓᨅᨊᨛ. ᨍᨂᨊᨛ ᨒᨘᨄ ᨕᨘᨊᨛᨈᨘᨀᨛ ᨅᨛᨑᨛᨅᨁᨗ ᨉᨛᨂᨊᨛ ᨈᨛᨆᨊᨛ-ᨈᨛᨆᨊᨛ ᨕᨊᨛᨉ'
         },
         {
-            en: 'Play Now!',
+            indo: 'Mainkan Sekarang!',
             bug: 'ᨆᨕᨗᨃᨊᨛ ᨔᨛᨀᨑᨂᨛ'
         }
     ],
     section4: [
         {
-            en: 'Background Issues',
+            indo: 'Latar Belakang Penesan',
             bug: 'ᨆᨔᨒᨖᨛ ᨒᨈᨑᨛ ᨅᨛᨒᨀᨂᨛ'
         },
         {
-            en: 'See the interesting Bugis culture. We want to invite and learn together in a fun way',
+            indo: 'Melihat budaya Bugis yang menarik, Kami mengundang masyarakat untuk mengenal dan belajar bersama dengan cara yang menyenangkan.',
             bug: ' ᨆᨛᨒᨗᨖᨈᨛ ᨅᨘᨉᨐ ᨅᨘᨁᨗᨔᨛ ᨐᨂᨛ ᨆᨛᨊᨑᨗᨀᨛ. ᨀᨆᨗ ᨕᨗᨂᨗᨊᨛ ᨆᨛᨂᨍᨀᨛ ᨉᨊᨛ ᨅᨛᨒᨍᨑᨛ ᨅᨛᨑᨛᨔᨆ ᨉᨛᨂᨊᨛ ᨌᨑ ᨐᨂᨛ ᨆᨛᨎᨛᨊᨊᨛᨁᨛᨀᨛᨊᨛ'
         },
         {
-            en: 'Read more about us',
+            indo: 'Baca lebih lanjut tentang kami',
             bug: 'ᨅᨌ ᨒᨛᨅᨗᨖᨛ ᨒᨊᨛᨍᨘᨈᨛ ᨈᨛᨊᨛᨈᨂᨛ ᨀᨆᨗ'
         }
     ],
     section5: [
         {
-            en: 'You Got a Better Idea?',
+            indo: 'Punya ide untuk kuis?',
             bug: 'ᨕᨊᨛᨉ ᨄᨘᨎ ᨕᨗᨉᨛ ᨐᨂᨛ ᨒᨛᨅᨗᨖᨛ ᨅᨕᨗᨀᨛ?'
         },
         {
-            en: 'Share your ideas and challenge the others.',
+            indo: 'Yuk bagikan dan kami akan mewujudkannya!',
             bug: 'ᨅᨁᨗᨀᨊᨛ ᨕᨗᨉᨛ-ᨕᨗᨉᨛ ᨕᨊᨛᨉ ᨉᨊᨛ ᨈᨊᨛᨈᨂᨛ ᨐᨂᨛ ᨒᨕᨗᨊᨛ.'
         },
         {
-            en: 'Contribute!',
+            indo: 'Ikut Kontribusi',
             bug: 'ᨔᨘᨆᨛᨅᨂᨛ'
         }
     ]
@@ -90,15 +90,15 @@ const homePage = {
 const aboutPage = {
     section1: [
         {
-            en: 'About us',
+            indo: 'Tentang kita',
             bug: 'ᨈᨛᨊᨛᨈᨂᨛ ᨀᨗᨈ'
         },
         {
-            en: 'Penesan became the result of the Me n Dem team, to be submitted in the Web Aksaran Lontaraq competition. We are made up of two people from different areas, some on high ground and others lowland. The initial idea of making a Penesan happened because we like to joke, so intend to help other lonely friends to gain new insights with the fun game about Lontaraq characters through Penesan.',
+            indo: 'Penesan merupakan ide dari tim Me n Dem, untuk diajukan dalam kompetisi Web Aksara Lontaraq. Kami terdiri dari dua orang dari daerah yang berbeda, satu dari dataran tinggi dan satu dari dataran rendah. Ide awal membuat Penesan terjadi karena kita suka bercanda, jadi berniat untuk membantu teman-teman kesepian lainnya untuk mendapatkan wawasan baru dengan permainan yang menyenangkan tentang karakter Lontaraq dan budaya Bugis melalui Penesan.',
             bug: ' ᨄᨛᨊᨛᨔᨊᨛ ᨆᨛᨊᨛᨍᨉᨗ ᨖᨔᨗᨒᨛ ᨉᨑᨗ ᨈᨗᨆᨛ ᨆᨛ ᨊᨛ ᨉᨛᨆᨛ, ᨕᨘᨊᨛᨈᨘᨀᨛ ᨉᨗᨕᨍᨘᨀᨊᨛ ᨉᨒᨆᨛ ᨀᨚᨇᨛᨈᨗᨔᨗ ᨓᨛᨅᨛ ᨕᨀᨛᨔᨑᨊᨛ ᨒᨚᨊᨛᨈᨑᨀᨛ. ᨀᨆᨗ ᨈᨛᨑᨛᨉᨗᨑᨗ ᨉᨑᨗ ᨉᨘᨕ ᨕᨚᨑᨂᨛ ᨉᨑᨗ ᨉᨕᨛᨑᨖᨛ ᨐᨂᨛ ᨅᨛᨑᨛᨅᨛᨉ, ᨅᨛᨅᨛᨑᨄ ᨉᨗ ᨉᨈᨑᨊᨛ ᨈᨗᬂᬕ ᨉᨊᨛ ᨐᨂᨛ ᨒᨕᨗᨊᨛᨎ ᨉᨈᨑᨊᨛ ᨑᨛᨊᨛᨉᨖᨛ. ᨕᨗᨉᨛ ᨕᨓᨒᨛ ᨆᨛᨆᨛᨅᨘᨕᨈᨛ ᨄᨛᨊᨛᨔᨊᨛ ᨈᨛᨑᨛᨍᨉᨗ ᨀᨑᨛᨊ ᨀᨗᨈ ᨔᨘᨀ ᨅᨛᨑᨛᨌᨊᨛᨉ, ᨍᨉᨗ ᨅᨛᨑᨛᨊᨗᨕᨈᨛ ᨕᨘᨊᨛᨈᨘᨀᨛ ᨆᨛᨆᨛᨅᨊᨛᨈᨘ ᨈᨛᨆᨊᨛ-ᨈᨛᨆᨊᨛ ᨀᨛᨔᨛᨄᨗᨕᨊᨛ ᨒᨕᨗᨊᨛᨎ ᨕᨘᨊᨛᨈᨘᨀᨛ ᨆᨛᨊᨛᨉᨄᨈᨛᨀᨊᨛ ᨓᨓᨔᨊᨛ ᨅᨑᨘ ᨉᨛᨂᨊᨛ ᨄᨛᨑᨛᨆᨕᨗᨊᨊᨛ ᨐᨂᨛ ᨆᨛᨎᨛᨊᨊᨛᨁᨛᨀᨛᨊᨛ ᨈᨛᨊᨛᨈᨂᨛ ᨀᨑᨀᨛᨈᨛᨑᨛ ᨒᨚᨊᨛᨈᨑᨀᨛ ᨆᨛᨒᨒᨘᨕᨗ ᨄᨛᨊᨛᨔᨊᨛ.'
         },
         {
-            en: 'Connect with us!',
+            indo: 'Hubungi Kami!',
             bug: 'ᨈᨛᨑᨘᨅᨘᨂᨛ ᨉᨛᨂᨊᨛ ᨀᨆᨗ'
         }
     ]
@@ -107,25 +107,25 @@ const aboutPage = {
 const contributePage = {
     section1: [
         {
-            en: 'CONTRIBUTE',
+            indo: 'KONTRIBUSI',
             bug: 'ᨔᨕᨘᨆᨛᨅᨕᨂᨛ'
         },
         {
-            en: 'Give Us Your Idea',
+            indo: 'Beri tahu kami ide anda',
             bug: ' ᨅᨛᨑᨗ ᨀᨆᨗ ᨕᨗᨉᨛ ᨕᨊᨛᨉ'
         },
         {
-            en: 'Submit',
+            indo: 'Kirim',
             bug: 'ᨀᨗᨑᨗ'
         }
     ],
     section2: [
         {
-            en: 'OTHERS IDEAS',
+            indo: 'IDE-IDE LAIN',
             bug: 'ᨕᨗᨉᨕᨛ-ᨕᨗᨉᨕᨛ ᨒᨕᨕᨕᨗᨊᨛ'
         },
         {
-            en: 'Creative Ideas from Others',
+            indo: 'Ide Kreatif dari Pengguna Lain',
             bug: 'ᨕᨗᨉᨛ ᨀᨛᨑᨛᨕᨈᨗᨄᨛ ᨉᨑᨗ ᨐᨂᨛ ᨒᨕᨗᨊᨛ'
         }
     ]
