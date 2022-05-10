@@ -90,7 +90,7 @@ const homePage = {
 const aboutPage = {
     section1: [
         {
-            indo: 'Tentang kita',
+            indo: 'Tentang Kami',
             bug: 'ᨈᨛᨊᨛᨈᨂᨛ ᨀᨗᨈ'
         },
         {
